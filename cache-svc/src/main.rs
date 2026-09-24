@@ -137,7 +137,7 @@ async fn main() -> Result<()> {
         index: VectorIndex::connect(&var("QDRANT_URL", "http://localhost:6334"), &collection, dim).await?,
         entries: EntryStore::connect(&var("REDIS_URL", "redis://localhost:6379")).await?,
         dim: dim as usize,
-        default_threshold: parse("SIMILARITY_THRESHOLD", 0.92)?,
+        default_threshold: parse("SIMILARITY_THRESHOLD", 0.90)?,
         default_ttl_secs: parse("CACHE_TTL_SECS", 86_400)?,
     };
 

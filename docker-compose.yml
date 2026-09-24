@@ -57,7 +57,6 @@ services:
       QDRANT_URL: http://qdrant:6334
       REDIS_URL: redis://redis:6379
       EMBEDDING_DIM: 384
-      SIMILARITY_THRESHOLD: ${SIMILARITY_THRESHOLD:-0.92}
       CACHE_TTL_SECS: ${CACHE_TTL_SECS:-86400}
     depends_on:
       qdrant:
@@ -89,6 +88,9 @@ services:
       EMBEDDING_SVC_URL: http://embedding-svc:50051
       CACHE_SVC_URL: http://cache-svc:50052
       PROVIDER_ADAPTER_URL: http://provider-adapter:50053
+      # Used for cache lookups and in-flight dedup; sent to cache-svc per query.
+      SIMILARITY_THRESHOLD: ${SIMILARITY_THRESHOLD:-0.90}
+      DEDUP_ENABLED: ${DEDUP_ENABLED:-true}
     depends_on:
       # The gateway connects lazily and fails open, so it only needs these
       # started; waiting for embedding-svc's model avoids a burst of bypasses.

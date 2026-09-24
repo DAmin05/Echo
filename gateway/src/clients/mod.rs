@@ -57,12 +57,11 @@ impl Clients {
         Ok(resp.into_inner().vector)
     }
 
-    /// Uses cache-svc's configured similarity threshold.
-    pub async fn cache_query(&self, vector: Vec<f32>, params: &str) -> Result<Option<CacheHit>, Status> {
+    pub async fn cache_query(&self, vector: Vec<f32>, params: &str, threshold: f32) -> Result<Option<CacheHit>, Status> {
         let resp = self
             .cache
             .clone()
-            .query(QueryRequest { vector, params: params.to_string(), threshold: None })
+            .query(QueryRequest { vector, params: params.to_string(), threshold: Some(threshold) })
             .await?;
         Ok(resp.into_inner().hit)
     }

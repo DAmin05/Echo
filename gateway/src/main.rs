@@ -5,8 +5,11 @@
 
 mod clients;
 mod config;
+mod dedup;
 mod handlers;
 mod openai;
+
+use std::sync::{atomic::AtomicU64, Arc};
 
 use anyhow::Result;
 use axum::{
@@ -16,7 +19,7 @@ use axum::{
 use tracing::info;
 use tracing_subscriber::EnvFilter;
 
-use crate::{clients::Clients, config::Config};
+use crate::{clients::Clients, config::Config, dedup::InFlight, handlers::AppState};
 
 #[tokio::main]
 async fn main() -> Result<()> {
@@ -27,17 +30,25 @@ async fn main() -> Result<()> {
         .init();
 
     let cfg = Config::from_env()?;
-    let clients = Clients::connect_lazy(&cfg)?;
+    let state = Arc::new(AppState {
+        clients: Clients::connect_lazy(&cfg)?,
+        inflight: InFlight::new(cfg.similarity_threshold),
+        dedup_enabled: cfg.dedup_enabled,
+        threshold: cfg.similarity_threshold,
+        coalesced: AtomicU64::new(0),
+    });
 
     let app = Router::new()
         .route("/v1/chat/completions", post(handlers::chat_completions))
         .route("/stats", get(handlers::stats))
         .route("/healthz", get(handlers::healthz))
-        .with_state(clients);
+        .with_state(state);
 
     let listener = tokio::net::TcpListener::bind(("0.0.0.0", cfg.port)).await?;
     info!(
         addr = %listener.local_addr()?,
+        threshold = %cfg.similarity_threshold,
+        dedup = cfg.dedup_enabled,
         embedding_svc = %cfg.embedding_svc_url,
         cache_svc = %cfg.cache_svc_url,
         provider_adapter = %cfg.provider_adapter_url,

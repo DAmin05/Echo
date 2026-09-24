@@ -7,7 +7,7 @@ Echo sits between clients and LLM providers. It embeds each prompt, checks a vec
 - [x] Phase 0 — Infra bootstrap (Qdrant + Redis via Docker Compose)
 - [x] Phase 1 — Monolith proof of concept
 - [x] Phase 2 — Split into services (gRPC)
-- [ ] Phase 3 — Concurrency correctness (in-flight dedup, threshold tuning)
+- [x] Phase 3 — Concurrency correctness (in-flight dedup, threshold tuning)
 - [ ] Phase 4 — Observability (OpenTelemetry + Jaeger)
 - [ ] Phase 5 — Load test and results
 
@@ -34,15 +34,16 @@ Echo sits between clients and LLM providers. It embeds each prompt, checks a vec
 Per request, the gateway:
 
 1. **Embeds** the final user message (embedding-svc → 384-dim `all-MiniLM-L6-v2` vector).
-2. **Queries** the cache (cache-svc → nearest neighbour in Qdrant with cosine similarity ≥ 0.92, restricted to entries whose other request fields match exactly).
-3. On a **hit**, returns the cached response (`x-echo-cache: hit`, `x-echo-similarity: 0.95xx`).
-4. On a **miss**, **generates** the answer (provider-adapter → Claude / OpenAI / Ollama), **stores** it (cache-svc), and returns it (`x-echo-cache: miss`).
+2. **Joins in-flight requests**: if a near-identical request is already being answered, waits for that answer instead (`x-echo-cache: coalesced`).
+3. **Queries** the cache (cache-svc → nearest neighbour in Qdrant with cosine similarity ≥ 0.90, restricted to entries whose other request fields match exactly).
+4. On a **hit**, returns the cached response (`x-echo-cache: hit`, `x-echo-similarity: 0.95xx`).
+5. On a **miss**, **generates** the answer (provider-adapter → Claude / OpenAI / Ollama), **stores** it (cache-svc), and returns it (`x-echo-cache: miss`).
 
 | Service | Language | Port(s) | Owns |
 |---|---|---|---|
-| `gateway` | Rust (Axum, tonic) | 8080 | Public API, cache key, orchestration. Holds no secrets. |
+| `gateway` | Rust (Axum, tonic) | 8080 | Public API, cache key, similarity threshold, in-flight dedup, orchestration. Holds no secrets. |
 | `embedding-svc` | Python (sentence-transformers, grpcio, FastAPI) | 50051 gRPC, 8001 HTTP | The embedding model |
-| `cache-svc` | Rust (tonic) | 50052 | Qdrant + Redis, similarity threshold, TTL, hit/miss stats |
+| `cache-svc` | Rust (tonic) | 50052 | Qdrant + Redis, TTL, hit/miss stats |
 | `provider-adapter` | Rust (tonic, reqwest) | 50053 | Provider API keys and request/response translation |
 | `qdrant` | — | 6333 REST, 6334 gRPC | Vectors |
 | `redis` | — | 6379 | Cached responses with TTLs |
@@ -66,7 +67,7 @@ client = OpenAI(base_url="http://localhost:8080/v1", api_key="unused")
 client.chat.completions.create(model="claude-haiku-4-5", messages=[{"role": "user", "content": "Hi"}])
 ```
 
-`GET /stats` returns running hit/miss counters. `POST localhost:8001/embed` with `{"text": "..."}` returns a raw embedding. Qdrant's dashboard is at http://localhost:6333/dashboard.
+`GET /stats` returns running hit/miss counters, plus how many requests were coalesced and how many are in flight. `POST localhost:8001/embed` with `{"text": "..."}` returns a raw embedding. Qdrant's dashboard is at http://localhost:6333/dashboard.
 
 Stop with `docker compose down` (add `-v` to wipe stored vectors and responses).
 
@@ -80,6 +81,41 @@ provider-adapter picks the provider from the model name: `claude-*` → Anthropi
 
 - **Only the final user message is embedded.** That's the part expected to vary in wording.
 - **Everything else must match exactly**: model, max_tokens, sampling params, and all earlier messages (system prompt, prior turns), serialized as canonical JSON and stored as a Qdrant payload filter. Embedding the whole conversation would let a long shared system prompt pull unrelated questions toward each other and cause false hits. It would also let the same question asked in a different conversation return an answer written for another context.
+
+### In-flight deduplication (thundering herd)
+
+Without dedup, N near-identical requests arriving together all miss the cache, since nothing is stored until the first one finishes, and all N call the LLM. [`gateway/src/dedup.rs`](gateway/src/dedup.rs) makes the first request the **leader**. Later similar requests become **followers** and wait for the leader's result on a `tokio::sync::broadcast` channel.
+
+- **"Similar" means what it means for the cache:** identical `params`, then cosine similarity ≥ threshold against in-flight vectors. An exact-match key would only catch byte-identical prompts.
+- **No gap between in-flight and cached.** A request joins the in-flight set *before* its cache lookup, and a leader stores its answer *before* leaving the set. A later similar request therefore always finds either the leader or its cached answer.
+- **Check-and-register is one critical section** under a `Mutex`, so two simultaneous requests can't both become leader. Nothing is awaited while the lock is held.
+- **The leader's work runs as a detached task.** If the leader's client disconnects, the answer is still cached and followers still receive it. If the task dies anyway, followers see the channel close and handle the request themselves.
+- **Followers share the leader's outcome, errors included.** A 429 for the leader is a 429 for its followers too, rather than N more requests into a rate limit.
+- **Scope: one gateway process.** Multiple gateway replicas would each elect their own leaders; cross-replica dedup would need a shared lock (e.g. Redis `SET NX` with a TTL).
+
+`DEDUP_ENABLED=false` turns it off, which exists only to measure what it prevents (see Results).
+
+### Choosing the threshold
+
+`SIMILARITY_THRESHOLD` (default **0.90**) is set on the gateway, which uses it for dedup and sends it with every cache query, so both always agree. It was chosen with [`scripts/threshold_eval.py`](scripts/threshold_eval.py) on [`eval/paraphrases.json`](eval/paraphrases.json). That set has 50 questions, each with 2 paraphrases that *should* hit and 1 hard negative that *must not*: a question worded almost identically that needs a different answer ("capital of France" / "capital of Germany", "10 km to miles" / "10 miles to km"). The eval simulates a cache holding the 50 originals:
+
+| Threshold | Paraphrases served (savings) | Wrong answers served | Precision |
+|---|---|---|---|
+| 0.80 | 91% | 20 | 82.0% |
+| 0.85 | 80% | 11 | 87.9% |
+| 0.88 | 67% | 8 | 89.3% |
+| **0.90** | **60%** | **5** | **92.3%** |
+| 0.92 | 42% | 5 | 89.4% |
+| 0.95 | 25% | 3 | 89.3% |
+| 0.97 | 11% | 2 | 84.6% |
+
+- **0.90 dominates the original 0.92:** it serves the same number of wrong answers and catches 18 more paraphrases.
+- **Below 0.90,** wrong answers grow faster than savings: 0.85 adds 20 points of hit rate but more than doubles the wrong answers.
+- **No threshold is safe with this embedding model.** The worst hard negatives score *higher* than almost every real paraphrase. "convert an integer to a string in JavaScript" vs "a string to an integer" scores 0.996, and "10 miles to km" vs "10 km to miles" scores 0.993. MiniLM embeddings barely register direction, word order or which number appears, so even at 0.97 two of thirteen hits are wrong. Raising the threshold mostly throws away savings.
+- **What would actually fix it** is a second check on each candidate hit: a cross-encoder trained on duplicate-question detection that reads the query and the cached prompt together, or a stronger embedding model. For now, Echo is best suited to workloads where a slightly-off cached answer is cheap, such as FAQ-style traffic.
+- **Caveat:** the eval set is small and hand-written, so the numbers are indicative, not a benchmark.
+
+The same threshold governs dedup, so the same caveat applies to coalescing: two simultaneous direction-swapped questions would share one answer.
 
 ### Fail open
 
@@ -130,7 +166,7 @@ The gateway converts OpenAI requests into a provider-neutral `GenerateRequest`, 
 | Median latency, hit | **15 ms** |
 | Median latency, miss (Claude call) | **2,171 ms**: hits are ~145× faster |
 
-The one paraphrase that missed was "What is the boiling point of water at sea level?" vs. "At sea level, what temperature does water boil at?". Claude gave the same answer both times, so this was a missed saving, not a correctness problem. It's evidence that 0.92 may be too strict for MiniLM; Phase 3 tunes the threshold on a proper paraphrase set.
+The one paraphrase that missed was "What is the boiling point of water at sea level?" vs. "At sea level, what temperature does water boil at?". Claude gave the same answer both times, so this was a missed saving, not a correctness problem. The demo's paraphrases turned out to be easy ones: on Phase 3's larger eval set, 0.92 caught only 42% of paraphrases.
 
 ### Phase 2 — services
 
@@ -149,6 +185,19 @@ Failure behaviour, tested by stopping containers:
 | Provider not configured | 400 naming the missing env var |
 | Opus 5 with `temperature` | 400 from Anthropic, message passed through |
 
+### Phase 3 — concurrency and threshold
+
+[`scripts/thundering_herd.py`](scripts/thundering_herd.py) fires 20 simultaneous requests, drawn from 4 paraphrases of one question, at a cold cache:
+
+| | LLM calls | Distinct answers returned | Median latency |
+|---|---|---|---|
+| `DEDUP_ENABLED=false` | 20 | 5 | 759 ms |
+| Dedup on | **2** | 2 | 777 ms |
+
+That's 90% fewer provider calls at the same latency, and users asking at the same moment get consistent answers. There were 2 leaders rather than 1 because two of the four paraphrases ("Which city is Australia's capital?" / "Tell me the capital of Australia.") score 0.878 against each other, below the threshold, so they couldn't share. The unit test `fifty_concurrent_requests_make_one_backend_call` checks the single-leader case directly.
+
+Threshold results are in [Choosing the threshold](#choosing-the-threshold).
+
 ## Local development
 
 The Rust services are one Cargo workspace:
@@ -162,8 +211,8 @@ Each binary reads `.env` from the repo root and defaults to `localhost` addresse
 
 ## Known limitations (addressed in later phases)
 
-- No in-flight dedup: two concurrent misses for the same prompt both call the LLM (Phase 3).
-- The 0.92 threshold hasn't been tuned yet (Phase 3 eval).
+- Semantic matching can serve the answer to a near-identical but different question (see [Choosing the threshold](#choosing-the-threshold)); a cross-encoder verification step would address it.
+- In-flight dedup is per gateway process, not across replicas.
 - `stream: true` and tool calling are rejected (Phase 6).
 - If the nearest match turns out to be expired, the lookup counts as a miss, even when a live entry further down the list would have matched.
 - Stale Qdrant points that no lookup ever hits again are never cleaned up; a periodic sweep in cache-svc would fix it.
