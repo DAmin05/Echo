@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+package echo.provider.v1;
+
+// One chat-completion interface over several LLM providers. Callers never see
+// provider-specific request or response shapes.
+service ProviderService {
+  rpc Generate(GenerateRequest) returns (GenerateResponse);
+}
+
+enum Provider {
+  // Infer from the model name: "claude-*" = Anthropic, "gpt-*"/"o<N>*" = OpenAI,
+  // anything else = Ollama. A "provider/model" prefix (e.g. "ollama/llama3.2")
+  // selects one explicitly.
+  PROVIDER_UNSPECIFIED = 0;
+  PROVIDER_ANTHROPIC = 1;
+  PROVIDER_OPENAI = 2;
+  PROVIDER_OLLAMA = 3;
+}
+
+enum Role {
+  ROLE_UNSPECIFIED = 0;
+  ROLE_SYSTEM = 1;
+  ROLE_USER = 2;
+  ROLE_ASSISTANT = 3;
+}
+
+message Message {
+  Role role = 1;
+  string content = 2;
+}
+
+message GenerateRequest {
+  Provider provider = 1;
+  string model = 2;
+  repeated Message messages = 3;
+  optional uint32 max_tokens = 4;
+  optional double temperature = 5;
+  optional double top_p = 6;
+  repeated string stop = 7;
+}
+
+enum FinishReason {
+  FINISH_REASON_UNSPECIFIED = 0;
+  // Natural end of the answer, or a stop sequence. The only cacheable outcome.
+  FINISH_REASON_STOP = 1;
+  // Cut off by max_tokens.
+  FINISH_REASON_LENGTH = 2;
+  // Declined by the provider's safety systems.
+  FINISH_REASON_CONTENT_FILTER = 3;
+  FINISH_REASON_OTHER = 4;
+}
+
+message GenerateResponse {
+  string id = 1;
+  // Model that actually answered (may differ from the request, e.g. after a fallback).
+  string model = 2;
+  string text = 3;
+  FinishReason finish_reason = 4;
+  uint32 prompt_tokens = 5;
+  uint32 completion_tokens = 6;
+  Provider provider = 7;
+}

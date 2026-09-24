@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+package echo.cache.v1;
+
+// Semantic cache: nearest-neighbour lookup in Qdrant, responses and TTLs in Redis.
+// Responses are opaque strings; the cache never interprets them.
+service CacheService {
+  rpc Query(QueryRequest) returns (QueryResponse);
+  rpc Store(StoreRequest) returns (StoreResponse);
+  rpc Stats(StatsRequest) returns (StatsResponse);
+}
+
+message QueryRequest {
+  repeated float vector = 1;
+  // Exact-match key: only entries stored with identical params can be returned.
+  string params = 2;
+  // Minimum cosine similarity for a hit. Unset = the service's configured default.
+  optional float threshold = 3;
+}
+
+message QueryResponse {
+  // Unset on a miss.
+  optional CacheHit hit = 1;
+}
+
+message CacheHit {
+  string entry_id = 1;
+  float similarity = 2;
+  string response = 3;
+}
+
+message StoreRequest {
+  repeated float vector = 1;
+  // The text that was embedded, kept for debugging and eval.
+  string prompt = 2;
+  string params = 3;
+  string response = 4;
+  // Unset = the service's configured default.
+  optional uint64 ttl_secs = 5;
+}
+
+message StoreResponse {
+  string entry_id = 1;
+}
+
+message StatsRequest {}
+
+// A hit is counted when Query returns one; a miss when Store is called
+// (i.e. the provider was called and its answer cached).
+message StatsResponse {
+  uint64 hits = 1;
+  uint64 misses = 2;
+}

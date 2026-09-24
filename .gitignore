@@ -1,0 +1,10 @@
+target/
+__pycache__/
+*.pyc
+.venv/
+.env
+.DS_Store
+.fastembed_cache/
+embedding-svc/*_pb2*.py
+
+.env.example

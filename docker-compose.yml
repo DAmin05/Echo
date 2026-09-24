@@ -1,0 +1,105 @@
+name: echo
+
+# Values like ${ANTHROPIC_API_KEY} come from the repo-root .env file.
+
+services:
+  # --- Infra ---------------------------------------------------------------
+
+  qdrant:
+    image: qdrant/qdrant:v1.19.1
+    ports:
+      - "6333:6333"   # REST + web dashboard (http://localhost:6333/dashboard)
+      - "6334:6334"   # gRPC — used by the Rust qdrant-client
+    volumes:
+      - qdrant_data:/qdrant/storage
+    healthcheck:
+      # The image has no curl/wget; bash's /dev/tcp is enough to confirm the port is open.
+      test: ["CMD-SHELL", "bash -c ':> /dev/tcp/127.0.0.1/6333' || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  redis:
+    image: redis:7.4
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: ["redis-server", "--appendonly", "yes"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  # --- Echo services ---------------------------------------------------------
+  # Build contexts are the repo root so every service can reach proto/.
+  # Internal ports are published too, for grpcurl and for running one service
+  # locally with `cargo run` against the rest.
+
+  embedding-svc:
+    build:
+      context: .
+      dockerfile: embedding-svc/Dockerfile
+    ports:
+      - "50051:50051" # gRPC
+      - "8001:8001"   # HTTP: /healthz, POST /embed
+    restart: unless-stopped
+    # Healthcheck is defined in the Dockerfile (passes once the model is loaded).
+
+  cache-svc:
+    build:
+      context: .
+      dockerfile: cache-svc/Dockerfile
+    ports:
+      - "50052:50052"
+    environment:
+      QDRANT_URL: http://qdrant:6334
+      REDIS_URL: redis://redis:6379
+      EMBEDDING_DIM: 384
+      SIMILARITY_THRESHOLD: ${SIMILARITY_THRESHOLD:-0.92}
+      CACHE_TTL_SECS: ${CACHE_TTL_SECS:-86400}
+    depends_on:
+      qdrant:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  provider-adapter:
+    build:
+      context: .
+      dockerfile: provider-adapter/Dockerfile
+    ports:
+      - "50053:50053"
+    environment:
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      # Ollama running on the host machine, reachable from inside the container.
+      OLLAMA_URL: ${OLLAMA_URL:-http://host.docker.internal:11434}
+    restart: unless-stopped
+
+  gateway:
+    build:
+      context: .
+      dockerfile: gateway/Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      EMBEDDING_SVC_URL: http://embedding-svc:50051
+      CACHE_SVC_URL: http://cache-svc:50052
+      PROVIDER_ADAPTER_URL: http://provider-adapter:50053
+    depends_on:
+      # The gateway connects lazily and fails open, so it only needs these
+      # started; waiting for embedding-svc's model avoids a burst of bypasses.
+      embedding-svc:
+        condition: service_healthy
+      cache-svc:
+        condition: service_started
+      provider-adapter:
+        condition: service_started
+    restart: unless-stopped
+
+volumes:
+  qdrant_data:
+  redis_data:

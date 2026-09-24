@@ -1,0 +1,19 @@
+[workspace]
+resolver = "2"
+members = ["gateway", "cache-svc", "provider-adapter"]
+
+[workspace.dependencies]
+anyhow = "1"
+dotenvy = "0.15"
+prost = "0.14"
+protox = "0.9"
+reqwest = { version = "0.13", features = ["json"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", features = ["full"] }
+tonic = "0.14"
+tonic-prost = "0.14"
+tonic-prost-build = "0.14"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+uuid = { version = "1", features = ["v4"] }

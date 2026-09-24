@@ -1,0 +1,7 @@
+# torch is installed separately in the Dockerfile from the CPU-only wheel index
+# (the default PyPI wheel bundles ~2 GB of CUDA libraries we don't use).
+sentence-transformers==6.1.0
+grpcio==1.84.0
+grpcio-tools==1.84.0
+fastapi==0.141.1
+uvicorn==0.53.0

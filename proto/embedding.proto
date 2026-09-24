@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package echo.embedding.v1;
+
+// Turns text into a dense vector for similarity search.
+service EmbeddingService {
+  rpc Embed(EmbedRequest) returns (EmbedResponse);
+}
+
+message EmbedRequest {
+  string text = 1;
+}
+
+message EmbedResponse {
+  // L2-normalized, so cosine similarity equals the dot product.
+  repeated float vector = 1;
+  // Model that produced the vector, e.g. "sentence-transformers/all-MiniLM-L6-v2".
+  // Vectors from different models are not comparable.
+  string model = 2;
+}
