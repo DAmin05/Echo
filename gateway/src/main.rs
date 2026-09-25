@@ -7,6 +7,7 @@ mod clients;
 mod config;
 mod dedup;
 mod handlers;
+mod matching;
 mod openai;
 
 use std::sync::{atomic::AtomicU64, Arc};
@@ -17,7 +18,6 @@ use axum::{
     Router,
 };
 use tracing::info;
-use tracing_subscriber::EnvFilter;
 
 use crate::{clients::Clients, config::Config, dedup::InFlight, handlers::AppState};
 
@@ -25,16 +25,14 @@ use crate::{clients::Clients, config::Config, dedup::InFlight, handlers::AppStat
 async fn main() -> Result<()> {
     // Looks in the current directory and its parents, so the repo-root .env works.
     dotenvy::dotenv().ok();
-    tracing_subscriber::fmt()
-        .with_env_filter(EnvFilter::try_from_default_env().unwrap_or_else(|_| "gateway=info".into()))
-        .init();
+    let _telemetry = telemetry::init("gateway", "gateway=info")?;
 
     let cfg = Config::from_env()?;
     let state = Arc::new(AppState {
         clients: Clients::connect_lazy(&cfg)?,
-        inflight: InFlight::new(cfg.similarity_threshold),
+        inflight: InFlight::new(cfg.matcher.candidate_threshold()),
         dedup_enabled: cfg.dedup_enabled,
-        threshold: cfg.similarity_threshold,
+        matcher: cfg.matcher,
         coalesced: AtomicU64::new(0),
     });
 
@@ -47,7 +45,7 @@ async fn main() -> Result<()> {
     let listener = tokio::net::TcpListener::bind(("0.0.0.0", cfg.port)).await?;
     info!(
         addr = %listener.local_addr()?,
-        threshold = %cfg.similarity_threshold,
+        matching = %cfg.matcher,
         dedup = cfg.dedup_enabled,
         embedding_svc = %cfg.embedding_svc_url,
         cache_svc = %cfg.cache_svc_url,

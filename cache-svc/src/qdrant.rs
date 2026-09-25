@@ -6,13 +6,13 @@ use qdrant_client::{
     qdrant::{
         point_id::PointIdOptions, vectors_config, Condition, CreateCollectionBuilder,
         CreateFieldIndexCollectionBuilder, DeletePointsBuilder, Distance, FieldType, Filter,
-        PointId, PointStruct, PointsIdsList, QueryPointsBuilder, UpsertPointsBuilder,
-        VectorParamsBuilder,
+        PointId, PointStruct, PointsIdsList, QueryPointsBuilder, with_payload_selector::SelectorOptions,
+        UpsertPointsBuilder, VectorParamsBuilder,
     },
     Payload, Qdrant,
 };
 use serde_json::json;
-use tracing::info;
+use tracing::{info, instrument, Span};
 
 pub struct VectorIndex {
     client: Qdrant,
@@ -67,27 +67,46 @@ impl VectorIndex {
         Ok(Self { client, collection: collection.to_string() })
     }
 
-    /// Closest entry with identical params and similarity >= `threshold`.
-    pub async fn nearest(&self, vector: Vec<f32>, params: &str, threshold: f32) -> Result<Option<(String, f32)>> {
+    /// Up to `limit` entries with identical params and similarity >= `threshold`,
+    /// most similar first, as `(id, similarity, prompt)`.
+    #[instrument(name = "qdrant.query", skip_all, fields(otel.kind = "client", db.system = "qdrant", limit, threshold, candidates))]
+    pub async fn candidates(
+        &self,
+        vector: Vec<f32>,
+        params: &str,
+        threshold: f32,
+        limit: u64,
+    ) -> Result<Vec<(String, f32, String)>> {
         let res = self
             .client
             .query(
                 QueryPointsBuilder::new(&self.collection)
                     .query(vector)
-                    .limit(1)
+                    .limit(limit)
                     .score_threshold(threshold)
-                    .filter(Filter::must([Condition::matches("params", params.to_string())])),
+                    .filter(Filter::must([Condition::matches("params", params.to_string())]))
+                    .with_payload(SelectorOptions::Include(vec!["prompt".to_string()].into())),
             )
             .await
             .context("querying Qdrant")?;
+        Span::current().record("candidates", res.result.len());
 
-        let Some(point) = res.result.into_iter().next() else {
-            return Ok(None);
-        };
-        let id = point_id_string(point.id).context("Qdrant returned a point without a UUID id")?;
-        Ok(Some((id, point.score)))
+        res.result
+            .into_iter()
+            .map(|point| {
+                let id = point_id_string(point.id).context("Qdrant returned a point without a UUID id")?;
+                let prompt = point
+                    .payload
+                    .get("prompt")
+                    .and_then(|v| v.as_str())
+                    .cloned()
+                    .unwrap_or_default();
+                Ok((id, point.score, prompt))
+            })
+            .collect()
     }
 
+    #[instrument(name = "qdrant.upsert", skip_all, fields(otel.kind = "client", db.system = "qdrant"))]
     pub async fn insert(&self, id: &str, vector: Vec<f32>, prompt: &str, params: &str) -> Result<()> {
         let payload = Payload::try_from(json!({ "prompt": prompt, "params": params }))?;
         self.client
@@ -100,6 +119,7 @@ impl VectorIndex {
         Ok(())
     }
 
+    #[instrument(name = "qdrant.delete", skip_all, fields(otel.kind = "client", db.system = "qdrant"))]
     pub async fn delete(&self, id: &str) -> Result<()> {
         self.client
             .delete_points(

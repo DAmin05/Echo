@@ -22,9 +22,13 @@ use crate::{qdrant::VectorIndex, redis_client::EntryStore};
 pub mod pb {
     tonic::include_proto!("echo.cache.v1");
 }
+
+/// Upper bound on candidates per query, to keep verification cheap.
+const MAX_CANDIDATES: u32 = 10;
 use pb::{
     cache_service_server::{CacheService, CacheServiceServer},
-    CacheHit, QueryRequest, QueryResponse, StatsRequest, StatsResponse, StoreRequest, StoreResponse,
+    Candidate, FetchRequest, FetchResponse, QueryRequest, QueryResponse, StatsRequest, StatsResponse,
+    StoreRequest, StoreResponse,
 };
 
 struct Cache {
@@ -57,31 +61,34 @@ impl CacheService for Cache {
         if !(-1.0..=1.0).contains(&threshold) {
             return Err(Status::invalid_argument("threshold must be within [-1, 1]"));
         }
+        let limit = u64::from(req.limit.clamp(1, MAX_CANDIDATES));
 
-        let Some((id, similarity)) = self
+        let candidates = self
             .index
-            .nearest(req.vector, &req.params, threshold)
+            .candidates(req.vector, &req.params, threshold, limit)
             .await
             .map_err(unavailable)?
-        else {
-            return Ok(Response::new(QueryResponse { hit: None }));
-        };
+            .into_iter()
+            .map(|(entry_id, similarity, prompt)| Candidate { entry_id, similarity, prompt })
+            .collect();
+        Ok(Response::new(QueryResponse { candidates }))
+    }
 
+    async fn fetch(&self, req: Request<FetchRequest>) -> Result<Response<FetchResponse>, Status> {
+        let id = req.into_inner().entry_id;
         let Some(response) = self.entries.get(&id).await.map_err(unavailable)? else {
             // TTL expired in Redis; drop the orphaned vector so it stops matching.
             match self.index.delete(&id).await {
                 Ok(()) => info!(entry = %id, "evicted stale cache entry"),
                 Err(e) => warn!(entry = %id, error = %e, "failed to evict stale cache entry"),
             }
-            return Ok(Response::new(QueryResponse { hit: None }));
+            return Ok(Response::new(FetchResponse { response: None }));
         };
 
         if let Err(e) = self.entries.record(true).await {
             warn!(error = %e, "failed to record hit");
         }
-        Ok(Response::new(QueryResponse {
-            hit: Some(CacheHit { entry_id: id, similarity, response }),
-        }))
+        Ok(Response::new(FetchResponse { response: Some(response) }))
     }
 
     async fn store(&self, req: Request<StoreRequest>) -> Result<Response<StoreResponse>, Status> {
@@ -123,11 +130,7 @@ fn unavailable(e: anyhow::Error) -> Status {
 #[tokio::main]
 async fn main() -> Result<()> {
     dotenvy::dotenv().ok();
-    tracing_subscriber::fmt()
-        .with_env_filter(
-            tracing_subscriber::EnvFilter::try_from_default_env().unwrap_or_else(|_| "cache_svc=info".into()),
-        )
-        .init();
+    let _telemetry = telemetry::init("cache-svc", "cache_svc=info")?;
 
     let addr: SocketAddr = var("CACHE_SVC_ADDR", "0.0.0.0:50052").parse()?;
     let dim: u64 = parse("EMBEDDING_DIM", 384)?;
@@ -150,6 +153,7 @@ async fn main() -> Result<()> {
         "cache-svc listening"
     );
     Server::builder()
+        .trace_fn(telemetry::server_span)
         .add_service(CacheServiceServer::new(cache))
         .serve_with_shutdown(addr, shutdown_signal())
         .await?;

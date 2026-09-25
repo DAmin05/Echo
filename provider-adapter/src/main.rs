@@ -14,7 +14,7 @@ use anyhow::Result;
 use reqwest::StatusCode;
 use serde_json::Value;
 use tonic::{transport::Server, Code, Request, Response, Status};
-use tracing::{info, warn};
+use tracing::{info, info_span, field::Empty, warn, Instrument};
 
 use crate::{anthropic::Anthropic, ollama::Ollama, openai::OpenAi};
 
@@ -45,8 +45,20 @@ impl ProviderService for Adapter {
         }
         let (provider, model) = resolve(req.provider(), &req.model)?;
 
+        // Attribute names follow OpenTelemetry's GenAI semantic conventions.
+        let span = info_span!(
+            "llm.generate",
+            otel.name = %format!("{} {model}", provider_name(provider)),
+            otel.kind = "client",
+            gen_ai.system = provider_name(provider),
+            gen_ai.request.model = %model,
+            gen_ai.response.model = Empty,
+            gen_ai.response.finish_reason = Empty,
+            gen_ai.usage.input_tokens = Empty,
+            gen_ai.usage.output_tokens = Empty,
+        );
         let started = Instant::now();
-        let result = match provider {
+        let result = async { match provider {
             Provider::Anthropic => {
                 let p = self.anthropic.as_ref().ok_or_else(|| not_configured("ANTHROPIC_API_KEY"))?;
                 p.generate(&model, &req).await
@@ -57,8 +69,16 @@ impl ProviderService for Adapter {
             }
             Provider::Ollama => self.ollama.generate(&model, &req).await,
             Provider::Unspecified => unreachable!("resolve() always picks a provider"),
-        };
+        } }
+        .instrument(span.clone())
+        .await;
         let latency_ms = started.elapsed().as_millis();
+        if let Ok(r) = &result {
+            span.record("gen_ai.response.model", r.model.as_str());
+            span.record("gen_ai.response.finish_reason", r.finish_reason().as_str_name());
+            span.record("gen_ai.usage.input_tokens", r.prompt_tokens);
+            span.record("gen_ai.usage.output_tokens", r.completion_tokens);
+        }
 
         match &result {
             Ok(r) => info!(
@@ -109,6 +129,15 @@ fn resolve(provider: Provider, model: &str) -> Result<(Provider, String), Status
         Provider::Ollama
     };
     Ok((provider, model.to_string()))
+}
+
+fn provider_name(p: Provider) -> &'static str {
+    match p {
+        Provider::Anthropic => "anthropic",
+        Provider::Openai => "openai",
+        Provider::Ollama => "ollama",
+        Provider::Unspecified => "unspecified",
+    }
 }
 
 fn not_configured(var: &str) -> Status {
@@ -178,12 +207,7 @@ pub(crate) fn role_name(role: Role) -> &'static str {
 #[tokio::main]
 async fn main() -> Result<()> {
     dotenvy::dotenv().ok();
-    tracing_subscriber::fmt()
-        .with_env_filter(
-            tracing_subscriber::EnvFilter::try_from_default_env()
-                .unwrap_or_else(|_| "provider_adapter=info".into()),
-        )
-        .init();
+    let _telemetry = telemetry::init("provider-adapter", "provider_adapter=info")?;
 
     let addr: SocketAddr = var("PROVIDER_ADAPTER_ADDR", "0.0.0.0:50053").parse()?;
     // Long ceiling: with extended thinking a 16K-token answer can take minutes.
@@ -214,6 +238,7 @@ async fn main() -> Result<()> {
         "provider-adapter listening"
     );
     Server::builder()
+        .trace_fn(telemetry::server_span)
         .add_service(ProviderServiceServer::new(adapter))
         .serve_with_shutdown(addr, async {
             tokio::signal::ctrl_c().await.ok();

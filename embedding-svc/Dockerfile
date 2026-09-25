@@ -10,11 +10,12 @@ RUN pip install torch==2.14.0 --index-url https://download.pytorch.org/whl/cpu
 COPY embedding-svc/requirements.txt .
 RUN pip install -r requirements.txt
 
-# Bake the model into the image: no download at startup, and the container
+# Bake the models into the image: no download at startup, and the container
 # works without internet access.
 ARG EMBEDDING_MODEL=sentence-transformers/all-MiniLM-L6-v2
-RUN python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('${EMBEDDING_MODEL}')"
-ENV HF_HUB_OFFLINE=1 EMBEDDING_MODEL=${EMBEDDING_MODEL}
+ARG VERIFIER_MODEL=cross-encoder/quora-roberta-base
+RUN python -c "from sentence_transformers import SentenceTransformer as S, CrossEncoder as C; S('${EMBEDDING_MODEL}'); C('${VERIFIER_MODEL}')"
+ENV HF_HUB_OFFLINE=1 EMBEDDING_MODEL=${EMBEDDING_MODEL} VERIFIER_MODEL=${VERIFIER_MODEL}
 
 COPY proto/embedding.proto proto/
 RUN python -m grpc_tools.protoc -I proto --python_out=. --grpc_python_out=. proto/embedding.proto

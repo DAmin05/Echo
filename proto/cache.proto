@@ -4,8 +4,12 @@ package echo.cache.v1;
 
 // Semantic cache: nearest-neighbour lookup in Qdrant, responses and TTLs in Redis.
 // Responses are opaque strings; the cache never interprets them.
+//
+// Lookups are two-step so the caller can verify candidates before serving one:
+// Query returns candidate prompts, Fetch returns the chosen entry's response.
 service CacheService {
   rpc Query(QueryRequest) returns (QueryResponse);
+  rpc Fetch(FetchRequest) returns (FetchResponse);
   rpc Store(StoreRequest) returns (StoreResponse);
   rpc Stats(StatsRequest) returns (StatsResponse);
 }
@@ -14,24 +18,37 @@ message QueryRequest {
   repeated float vector = 1;
   // Exact-match key: only entries stored with identical params can be returned.
   string params = 2;
-  // Minimum cosine similarity for a hit. Unset = the service's configured default.
+  // Minimum cosine similarity for a candidate. Unset = the service's configured default.
   optional float threshold = 3;
+  // Maximum candidates to return. 0 = 1.
+  uint32 limit = 4;
 }
 
 message QueryResponse {
-  // Unset on a miss.
-  optional CacheHit hit = 1;
+  // Most similar first. Empty on a miss.
+  repeated Candidate candidates = 1;
 }
 
-message CacheHit {
+message Candidate {
   string entry_id = 1;
   float similarity = 2;
-  string response = 3;
+  // The prompt the entry was stored with, for verification.
+  string prompt = 3;
+}
+
+message FetchRequest {
+  string entry_id = 1;
+}
+
+// Counts a hit when the entry exists.
+message FetchResponse {
+  // Unset if the entry's TTL has expired (its vector is evicted as a side effect).
+  optional string response = 1;
 }
 
 message StoreRequest {
   repeated float vector = 1;
-  // The text that was embedded, kept for debugging and eval.
+  // The text that was embedded; returned in Candidate.prompt for verification.
   string prompt = 2;
   string params = 3;
   string response = 4;
@@ -45,7 +62,7 @@ message StoreResponse {
 
 message StatsRequest {}
 
-// A hit is counted when Query returns one; a miss when Store is called
+// A hit is counted when Fetch returns a response; a miss when Store is called
 // (i.e. the provider was called and its answer cached).
 message StatsResponse {
   uint64 hits = 1;

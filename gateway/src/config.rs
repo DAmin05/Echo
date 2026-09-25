@@ -2,13 +2,15 @@ use std::{env, fmt::Display, str::FromStr};
 
 use anyhow::Result;
 
+use crate::matching::Matcher;
+
 /// Gateway configuration: where it listens, where the internal services are,
-/// and the similarity threshold (used for cache lookups and in-flight dedup).
+/// and how requests are matched (for cache lookups and in-flight dedup).
 /// The cache TTL lives in cache-svc; provider keys live in provider-adapter.
 /// The gateway holds no secrets.
 pub struct Config {
     pub port: u16,
-    pub similarity_threshold: f32,
+    pub matcher: Matcher,
     /// Off only to measure the thundering herd it prevents.
     pub dedup_enabled: bool,
     pub embedding_svc_url: String,
@@ -20,7 +22,15 @@ impl Config {
     pub fn from_env() -> Result<Self> {
         Ok(Self {
             port: parse("PORT", 8080)?,
-            similarity_threshold: parse("SIMILARITY_THRESHOLD", 0.90)?,
+            // Thresholds chosen with scripts/threshold_eval.py; see README.
+            matcher: if parse("VERIFY_ENABLED", true)? {
+                Matcher::Verify {
+                    candidate_threshold: parse("CANDIDATE_THRESHOLD", 0.70)?,
+                    verify_threshold: parse("VERIFY_THRESHOLD", 0.80)?,
+                }
+            } else {
+                Matcher::Similarity { threshold: parse("SIMILARITY_THRESHOLD", 0.90)? }
+            },
             dedup_enabled: parse("DEDUP_ENABLED", true)?,
             embedding_svc_url: var("EMBEDDING_SVC_URL", "http://localhost:50051"),
             cache_svc_url: var("CACHE_SVC_URL", "http://localhost:50052"),

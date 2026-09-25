@@ -1,5 +1,5 @@
 use std::{
-    collections::BTreeMap,
+    collections::{BTreeMap, HashSet},
     sync::{
         atomic::{AtomicU64, Ordering},
         Arc,
@@ -9,25 +9,29 @@ use std::{
 
 use axum::{
     extract::State,
-    http::{HeaderValue, StatusCode},
+    http::{HeaderMap, HeaderValue, StatusCode},
     response::{IntoResponse, Response},
     Json,
 };
 use serde_json::{json, Value};
-use tracing::{info, warn};
+use tracing::{field::Empty, info, info_span, warn, Instrument, Span};
 
 use crate::{
     clients::{pb::provider::FinishReason, Clients},
     dedup::{InFlight, Joined},
+    matching::Matcher,
     openai::{content_text, http_error, to_chat_completion, to_generate_request},
 };
+
+/// Cached entries considered per lookup. Only these get verified.
+const CACHE_CANDIDATES: u32 = 3;
 
 pub struct AppState {
     pub clients: Clients,
     pub inflight: Arc<InFlight<Served>>,
     pub dedup_enabled: bool,
-    /// Minimum cosine similarity for both cache hits and in-flight dedup.
-    pub threshold: f32,
+    /// Decides whether a cached entry or in-flight request matches.
+    pub matcher: Matcher,
     /// Requests answered by joining an in-flight request (this process only).
     pub coalesced: AtomicU64,
 }
@@ -41,6 +45,7 @@ pub struct Reply {
     /// `x-echo-cache` header value: hit / miss / bypass / coalesced.
     cache: &'static str,
     similarity: Option<f32>,
+    verify_score: Option<f32>,
 }
 
 impl IntoResponse for Reply {
@@ -48,9 +53,9 @@ impl IntoResponse for Reply {
         let mut res = (StatusCode::OK, Json(Arc::unwrap_or_clone(self.body))).into_response();
         let headers = res.headers_mut();
         headers.insert("x-echo-cache", HeaderValue::from_static(self.cache));
-        if let Some(score) = self.similarity {
-            if let Ok(v) = HeaderValue::from_str(&format!("{score:.4}")) {
-                headers.insert("x-echo-similarity", v);
+        for (name, value) in [("x-echo-similarity", self.similarity), ("x-echo-verify-score", self.verify_score)] {
+            if let Some(v) = value.and_then(|v| HeaderValue::from_str(&format!("{v:.4}")).ok()) {
+                headers.insert(name, v);
             }
         }
         res
@@ -69,18 +74,46 @@ struct Req {
 /// `POST /v1/chat/completions` — OpenAI-compatible, with a semantic cache in
 /// front of the LLM. Orchestrates the three internal services:
 ///
-///   embed (embedding-svc) → join in-flight → follower: wait for the leader's answer
-///                                          → leader: query (cache-svc) → hit: return
-///                                                    → miss: generate (provider-adapter)
-///                                                            → store (cache-svc) → return
+///   embed (embedding-svc) → join in-flight → verified match: wait for that request's answer
+///                                          → else lead: query (cache-svc) → verified hit: fetch, return
+///                                                       → miss: generate (provider-adapter)
+///                                                               → store (cache-svc) → return
 ///
 /// The cache is an optimisation, so it fails open: if embedding-svc or
 /// cache-svc is down or slow, the request still goes to the provider.
 pub async fn chat_completions(
     State(app): State<Arc<AppState>>,
+    headers: HeaderMap,
     Json(body): Json<Value>,
 ) -> Result<Response, AppError> {
+    // Root span of the request's trace (or a child of the caller's, if it sent `traceparent`).
+    let span = info_span!(
+        "POST /v1/chat/completions",
+        otel.kind = "server",
+        http.route = "/v1/chat/completions",
+        model = Empty,
+        cache = Empty,
+        otel.status_code = Empty,
+    );
+    telemetry::set_parent_from_headers(&span, &headers);
+    let result = handle(app, body).instrument(span.clone()).await;
+    match &result {
+        Ok(res) => {
+            let cache = res.headers().get("x-echo-cache").and_then(|v| v.to_str().ok()).unwrap_or("none");
+            span.record("cache", cache);
+        }
+        Err(_) => {
+            span.record("otel.status_code", "ERROR");
+        }
+    }
+    result
+}
+
+async fn handle(app: Arc<AppState>, body: Value) -> Result<Response, AppError> {
     let started = Instant::now();
+    if let Some(model) = body.get("model").and_then(Value::as_str) {
+        Span::current().record("model", model);
+    }
     let (prompt, params) = cache_inputs(&body)?;
 
     let t = Instant::now();
@@ -102,61 +135,111 @@ pub async fn chat_completions(
         return lookup_or_generate(&app, &req, vector).await.map(IntoResponse::into_response);
     }
 
-    match app.inflight.join(&req.params, &vector) {
-        Joined::Follower(mut rx) => match rx.recv().await {
+    // Follow a verified in-flight request, or become a leader. Rejected
+    // candidates are excluded on the next join; see dedup.rs.
+    let mut rejected = HashSet::new();
+    let leader = loop {
+        let candidates = match app.inflight.join(&req.params, &vector, &req.prompt, &rejected) {
+            Joined::Leader(leader) => break leader,
+            Joined::Candidates(c) => c,
+        };
+        let pairs: Vec<_> = candidates.iter().map(|c| (c.prompt.as_str(), c.similarity)).collect();
+        let accepted = app.matcher.accept(&app.clients, &req.prompt, &pairs).await;
+        rejected.extend(candidates.iter().map(|c| c.id));
+
+        let Some(best) = accepted.first() else { continue };
+        let mut chosen = candidates.into_iter().nth(best.index).expect("index from accept");
+        match chosen.rx.recv().instrument(info_span!("dedup.wait_for_leader")).await {
             Ok(served) => {
                 app.coalesced.fetch_add(1, Ordering::Relaxed);
-                info!(cache = "coalesced", total_ms = started.elapsed().as_millis(), "joined in-flight request");
-                served.map(|reply| Reply { cache: "coalesced", ..reply }.into_response())
+                info!(
+                    cache = "coalesced",
+                    similarity = chosen.similarity,
+                    verify_score = best.verify_score,
+                    total_ms = started.elapsed().as_millis(),
+                    "joined in-flight request"
+                );
+                return served.map(|reply| {
+                    Reply { cache: "coalesced", similarity: Some(chosen.similarity), verify_score: best.verify_score, ..reply }
+                        .into_response()
+                });
             }
-            Err(_) => {
-                warn!("in-flight leader ended without a result; handling request directly");
-                lookup_or_generate(&app, &req, vector).await.map(IntoResponse::into_response)
-            }
-        },
-        Joined::Leader(leader) => {
-            // Detached: if this client disconnects, the answer is still cached
-            // and the followers waiting on it still get it.
-            let task = tokio::spawn({
-                let (app, req) = (Arc::clone(&app), Arc::clone(&req));
-                async move {
-                    let served = lookup_or_generate(&app, &req, vector).await;
-                    leader.finish(served.clone());
-                    served
-                }
-            });
-            task.await
-                .map_err(|e| AppError::Internal(format!("request task failed: {e}")))?
-                .map(IntoResponse::into_response)
+            // The leader went away without a result; look again.
+            Err(_) => warn!("in-flight leader ended without a result"),
         }
-    }
+    };
+
+    // Detached: if this client disconnects, the answer is still cached and
+    // the followers waiting on it still get it.
+    let task = tokio::spawn(
+        {
+            let (app, req) = (Arc::clone(&app), Arc::clone(&req));
+            async move {
+                let served = lookup_or_generate(&app, &req, vector).await;
+                leader.finish(served.clone());
+                served
+            }
+        }
+        // Spawned tasks don't inherit the span; carry it so the work stays in this trace.
+        .in_current_span(),
+    );
+    task.await
+        .map_err(|e| AppError::Internal(format!("request task failed: {e}")))?
+        .map(IntoResponse::into_response)
 }
 
 async fn lookup_or_generate(app: &AppState, req: &Req, vector: Vec<f32>) -> Served {
     let t = Instant::now();
-    match app.clients.cache_query(vector.clone(), &req.params, app.threshold).await {
-        Ok(Some(hit)) => {
-            info!(
-                cache_hit = true,
-                similarity = hit.similarity,
-                entry = %hit.entry_id,
-                embed_ms = req.embed_ms,
-                lookup_ms = t.elapsed().as_millis(),
-                total_ms = req.started.elapsed().as_millis(),
-                "served from cache"
-            );
-            let cached: Value = serde_json::from_str(&hit.response)
-                .map_err(|e| AppError::Internal(format!("corrupt cached response: {e}")))?;
-            Ok(Reply { body: Arc::new(cached), cache: "hit", similarity: Some(hit.similarity) })
-        }
-        Ok(None) => generate(app, req, Some(vector)).await,
+    let candidates = match app
+        .clients
+        .cache_query(vector.clone(), &req.params, app.matcher.candidate_threshold(), CACHE_CANDIDATES)
+        .await
+    {
+        Ok(c) => c,
         Err(e) => {
             // Don't also try to store: that would add a second timeout to a
             // request already on the slow path.
             warn!(code = ?e.code(), error = e.message(), "cache-svc query failed; bypassing cache");
-            generate(app, req, None).await
+            return generate(app, req, None).await;
+        }
+    };
+
+    let pairs: Vec<_> = candidates.iter().map(|c| (c.prompt.as_str(), c.similarity)).collect();
+    for accepted in app.matcher.accept(&app.clients, &req.prompt, &pairs).await {
+        let candidate = &candidates[accepted.index];
+        match app.clients.cache_fetch(&candidate.entry_id).await {
+            Ok(Some(response)) => {
+                info!(
+                    cache_hit = true,
+                    similarity = candidate.similarity,
+                    verify_score = accepted.verify_score,
+                    entry = %candidate.entry_id,
+                    embed_ms = req.embed_ms,
+                    lookup_ms = t.elapsed().as_millis(),
+                    total_ms = req.started.elapsed().as_millis(),
+                    "served from cache"
+                );
+                let cached: Value = serde_json::from_str(&response)
+                    .map_err(|e| AppError::Internal(format!("corrupt cached response: {e}")))?;
+                return Ok(Reply {
+                    body: Arc::new(cached),
+                    cache: "hit",
+                    similarity: Some(candidate.similarity),
+                    verify_score: accepted.verify_score,
+                });
+            }
+            // Expired between query and fetch; try the next accepted candidate.
+            Ok(None) => continue,
+            Err(e) => {
+                warn!(code = ?e.code(), error = e.message(), "cache-svc fetch failed; bypassing cache");
+                return generate(app, req, None).await;
+            }
         }
     }
+    if !candidates.is_empty() {
+        info!(candidates = candidates.len(), "no candidate matched");
+    }
+    generate(app, req, Some(vector)).await
 }
 
 /// Calls the provider, and caches the answer if `vector` is set.
@@ -196,7 +279,7 @@ async fn generate(app: &AppState, req: &Req, vector: Option<Vec<f32>>) -> Served
         total_ms = req.started.elapsed().as_millis(),
         "forwarded to provider"
     );
-    Ok(Reply { body: Arc::new(completion), cache, similarity: None })
+    Ok(Reply { body: Arc::new(completion), cache, similarity: None, verify_score: None })
 }
 
 /// `GET /stats` — hit/miss counters from cache-svc, plus this gateway's

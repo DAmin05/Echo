@@ -2,9 +2,14 @@ syntax = "proto3";
 
 package echo.embedding.v1;
 
-// Turns text into a dense vector for similarity search.
+// The ML models: a bi-encoder that turns text into a vector for similarity
+// search, and a cross-encoder that verifies candidate matches.
 service EmbeddingService {
   rpc Embed(EmbedRequest) returns (EmbedResponse);
+  // Probability that each candidate asks the same question as `query`.
+  // Reads both texts together, so unlike vector similarity it notices
+  // direction and entity swaps ("miles to km" vs "km to miles").
+  rpc ScoreDuplicates(ScoreDuplicatesRequest) returns (ScoreDuplicatesResponse);
 }
 
 message EmbedRequest {
@@ -16,5 +21,16 @@ message EmbedResponse {
   repeated float vector = 1;
   // Model that produced the vector, e.g. "sentence-transformers/all-MiniLM-L6-v2".
   // Vectors from different models are not comparable.
+  string model = 2;
+}
+
+message ScoreDuplicatesRequest {
+  string query = 1;
+  repeated string candidates = 2;
+}
+
+message ScoreDuplicatesResponse {
+  // One score in [0, 1] per candidate, in request order.
+  repeated float scores = 1;
   string model = 2;
 }

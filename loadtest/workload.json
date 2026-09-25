@@ -1,0 +1,5002 @@
+[
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "paraphrase",
+"group": 48,
+"prompt": "What's the way to get rid of duplicate items in a Python list?"
+},
+{
+"category": "exact",
+"group": 12,
+"prompt": "Who painted the Mona Lisa?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "exact",
+"group": 20,
+"prompt": "What is TCP?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "exact",
+"group": 32,
+"prompt": "What is 15% of 200?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the main theme of Frankenstein?"
+},
+{
+"category": "exact",
+"group": 47,
+"prompt": "What is inflation in economics?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "Who wrote Rebecca?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the population of Lisbon?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 43,
+"prompt": "Who discovered penicillin?"
+},
+{
+"category": "paraphrase",
+"group": 10,
+"prompt": "What's the command to set up a virtualenv for Python?"
+},
+{
+"category": "exact",
+"group": 44,
+"prompt": "What is the longest river in the world?"
+},
+{
+"category": "exact",
+"group": 47,
+"prompt": "What is inflation in economics?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the capital of Croatia?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "Who wrote The Odyssey?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the capital of Morocco?"
+},
+{
+"category": "exact",
+"group": 20,
+"prompt": "What is TCP?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the chemical symbol for iron?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "paraphrase",
+"group": 7,
+"prompt": "What's the number of days in a leap year?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the main theme of Moby-Dick?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "How long does a gorilla typically live?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 32,
+"prompt": "What is 15% of 200?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the largest city in Tunisia?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "How long does a honeybee queen typically live?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the capital of Bolivia?"
+},
+{
+"category": "paraphrase",
+"group": 37,
+"prompt": "Which currency does Japan use?"
+},
+{
+"category": "exact",
+"group": 19,
+"prompt": "How many bones are in the adult human body?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is Reykjavik best known for?"
+},
+{
+"category": "exact",
+"group": 44,
+"prompt": "What is the longest river in the world?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 22,
+"prompt": "How do I center a div in CSS?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 2,
+"prompt": "What is the boiling point of water at sea level?"
+},
+{
+"category": "paraphrase",
+"group": 37,
+"prompt": "Which currency does Japan use?"
+},
+{
+"category": "paraphrase",
+"group": 48,
+"prompt": "Python: deduplicate a list"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the capital of Finland?"
+},
+{
+"category": "paraphrase",
+"group": 43,
+"prompt": "Penicillin was discovered by whom?"
+},
+{
+"category": "exact",
+"group": 18,
+"prompt": "What is the square root of 144?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the capital of Latvia?"
+},
+{
+"category": "paraphrase",
+"group": 9,
+"prompt": "Which planet is the biggest in the solar system?"
+},
+{
+"category": "exact",
+"group": 8,
+"prompt": "What is the speed of light in a vacuum?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "How long does a rabbit typically live?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the largest city in Kenya?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "exact",
+"group": 2,
+"prompt": "What is the boiling point of water at sea level?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "Who painted The Scream?"
+},
+{
+"category": "paraphrase",
+"group": 48,
+"prompt": "What's the way to get rid of duplicate items in a Python list?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "In what year was Jane Eyre first published?"
+},
+{
+"category": "exact",
+"group": 26,
+"prompt": "How do I make cold brew coffee?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the largest city in Ireland?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the official language of Chile?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the currency of Kenya?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "paraphrase",
+"group": 47,
+"prompt": "Explain inflation in economic terms."
+},
+{
+"category": "paraphrase",
+"group": 37,
+"prompt": "What money is used in Japan?"
+},
+{
+"category": "paraphrase",
+"group": 24,
+"prompt": "What's the Big O of binary search?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What country is Riga in?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "paraphrase",
+"group": 3,
+"prompt": "Who is the author of Pride and Prejudice?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "paraphrase",
+"group": 22,
+"prompt": "CSS: how to center a div"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the atomic number of sulfur?"
+},
+{
+"category": "exact",
+"group": 19,
+"prompt": "How many bones are in the adult human body?"
+},
+{
+"category": "paraphrase",
+"group": 43,
+"prompt": "Who is credited with discovering penicillin?"
+},
+{
+"category": "paraphrase",
+"group": 5,
+"prompt": "How many miles is 10 km?"
+},
+{
+"category": "exact",
+"group": 36,
+"prompt": "How do I convert a string to an integer in JavaScript?"
+},
+{
+"category": "exact",
+"group": 5,
+"prompt": "Convert 10 kilometers to miles."
+},
+{
+"category": "paraphrase",
+"group": 48,
+"prompt": "What's the way to get rid of duplicate items in a Python list?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "paraphrase",
+"group": 5,
+"prompt": "How many miles is 10 km?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 28,
+"prompt": "How long should I boil an egg for it to be hard-boiled?"
+},
+{
+"category": "exact",
+"group": 0,
+"prompt": "What is the capital of France?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the chemical symbol for zinc?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the capital of Nepal?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What country is Accra in?"
+},
+{
+"category": "exact",
+"group": 38,
+"prompt": "What is machine learning?"
+},
+{
+"category": "exact",
+"group": 21,
+"prompt": "What is the chemical symbol for gold?"
+},
+{
+"category": "paraphrase",
+"group": 35,
+"prompt": "What is guacamole mostly made of?"
+},
+{
+"category": "exact",
+"group": 9,
+"prompt": "What is the largest planet in our solar system?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the official language of Laos?"
+},
+{
+"category": "paraphrase",
+"group": 30,
+"prompt": "RAM vs ROM: what's the difference?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "paraphrase",
+"group": 37,
+"prompt": "Which currency does Japan use?"
+},
+{
+"category": "exact",
+"group": 33,
+"prompt": "How does a vaccine work?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the main theme of Jane Eyre?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the currency of Mongolia?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the chemical symbol for copper?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "How long does a penguin typically live?"
+},
+{
+"category": "exact",
+"group": 5,
+"prompt": "Convert 10 kilometers to miles."
+},
+{
+"category": "exact",
+"group": 47,
+"prompt": "What is inflation in economics?"
+},
+{
+"category": "paraphrase",
+"group": 5,
+"prompt": "How many miles is 10 km?"
+},
+{
+"category": "exact",
+"group": 47,
+"prompt": "What is inflation in economics?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 48,
+"prompt": "How do I remove duplicates from a list in Python?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the official language of Ireland?"
+},
+{
+"category": "exact",
+"group": 48,
+"prompt": "How do I remove duplicates from a list in Python?"
+},
+{
+"category": "paraphrase",
+"group": 36,
+"prompt": "JavaScript: parse a string into an int"
+},
+{
+"category": "exact",
+"group": 44,
+"prompt": "What is the longest river in the world?"
+},
+{
+"category": "exact",
+"group": 19,
+"prompt": "How many bones are in the adult human body?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the chemical symbol for phosphorus?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the population of Lima?"
+},
+{
+"category": "exact",
+"group": 18,
+"prompt": "What is the square root of 144?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "Who painted A Sunday Afternoon on the Island of La Grande Jatte?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the largest city in Jordan?"
+},
+{
+"category": "paraphrase",
+"group": 19,
+"prompt": "What's the number of bones in a grown human body?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 5,
+"prompt": "Convert 10 kilometers to miles."
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 46,
+"prompt": "How much water should I drink per day?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "paraphrase",
+"group": 37,
+"prompt": "What money is used in Japan?"
+},
+{
+"category": "paraphrase",
+"group": 28,
+"prompt": "What's the boiling time for a hard-boiled egg?"
+},
+{
+"category": "paraphrase",
+"group": 23,
+"prompt": "How many people live in Japan?"
+},
+{
+"category": "exact",
+"group": 30,
+"prompt": "What is the difference between RAM and ROM?"
+},
+{
+"category": "exact",
+"group": 28,
+"prompt": "How long should I boil an egg for it to be hard-boiled?"
+},
+{
+"category": "paraphrase",
+"group": 37,
+"prompt": "What money is used in Japan?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "paraphrase",
+"group": 3,
+"prompt": "Pride and Prejudice was written by whom?"
+},
+{
+"category": "exact",
+"group": 34,
+"prompt": "When was Python first released?"
+},
+{
+"category": "exact",
+"group": 36,
+"prompt": "How do I convert a string to an integer in JavaScript?"
+},
+{
+"category": "exact",
+"group": 5,
+"prompt": "Convert 10 kilometers to miles."
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the currency of Portugal?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the atomic number of aluminum?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "paraphrase",
+"group": 16,
+"prompt": "Name the world's tallest mountain."
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "paraphrase",
+"group": 36,
+"prompt": "What's the way to turn a string into a number in JS?"
+},
+{
+"category": "exact",
+"group": 42,
+"prompt": "How do I check disk space on Linux?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "How long does a parrot typically live?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 0,
+"prompt": "What is the capital of France?"
+},
+{
+"category": "exact",
+"group": 19,
+"prompt": "How many bones are in the adult human body?"
+},
+{
+"category": "paraphrase",
+"group": 36,
+"prompt": "JavaScript: parse a string into an int"
+},
+{
+"category": "exact",
+"group": 7,
+"prompt": "How many days are in a leap year?"
+},
+{
+"category": "paraphrase",
+"group": 19,
+"prompt": "How many bones does an adult human have?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the chemical symbol for silicon?"
+},
+{
+"category": "exact",
+"group": 2,
+"prompt": "What is the boiling point of water at sea level?"
+},
+{
+"category": "exact",
+"group": 28,
+"prompt": "How long should I boil an egg for it to be hard-boiled?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What country is Montevideo in?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the currency of Poland?"
+},
+{
+"category": "paraphrase",
+"group": 34,
+"prompt": "When was the first version of Python released?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the largest city in Latvia?"
+},
+{
+"category": "paraphrase",
+"group": 12,
+"prompt": "Who is the artist behind the Mona Lisa?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the official language of Egypt?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "paraphrase",
+"group": 36,
+"prompt": "What's the way to turn a string into a number in JS?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is Tunis best known for?"
+},
+{
+"category": "exact",
+"group": 22,
+"prompt": "How do I center a div in CSS?"
+},
+{
+"category": "exact",
+"group": 48,
+"prompt": "How do I remove duplicates from a list in Python?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the official language of Thailand?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the capital of Iceland?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 27,
+"prompt": "What causes rainbows?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "How long does a crocodile typically live?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "paraphrase",
+"group": 28,
+"prompt": "How many minutes to hard boil an egg?"
+},
+{
+"category": "exact",
+"group": 10,
+"prompt": "How do I create a virtual environment in Python?"
+},
+{
+"category": "exact",
+"group": 47,
+"prompt": "What is inflation in economics?"
+},
+{
+"category": "exact",
+"group": 3,
+"prompt": "Who wrote Pride and Prejudice?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is Dakar best known for?"
+},
+{
+"category": "paraphrase",
+"group": 37,
+"prompt": "Which currency does Japan use?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the capital of Peru?"
+},
+{
+"category": "exact",
+"group": 28,
+"prompt": "How long should I boil an egg for it to be hard-boiled?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the atomic number of lead?"
+},
+{
+"category": "paraphrase",
+"group": 40,
+"prompt": "Carbon has which atomic number?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 39,
+"prompt": "How many players does a soccer team have on the field?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "In what year was Moby-Dick first published?"
+},
+{
+"category": "exact",
+"group": 43,
+"prompt": "Who discovered penicillin?"
+},
+{
+"category": "exact",
+"group": 17,
+"prompt": "How do I undo the last git commit?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the official language of Cuba?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "Who wrote Brave New World?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "Who wrote The Hobbit?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the currency of Uruguay?"
+},
+{
+"category": "exact",
+"group": 19,
+"prompt": "How many bones are in the adult human body?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "paraphrase",
+"group": 19,
+"prompt": "What's the number of bones in a grown human body?"
+},
+{
+"category": "exact",
+"group": 28,
+"prompt": "How long should I boil an egg for it to be hard-boiled?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What country is Lima in?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the main theme of Catch-22?"
+},
+{
+"category": "exact",
+"group": 47,
+"prompt": "What is inflation in economics?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the population of Dakar?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the population of Accra?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "Who painted The School of Athens?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "paraphrase",
+"group": 37,
+"prompt": "Which currency does Japan use?"
+},
+{
+"category": "exact",
+"group": 2,
+"prompt": "What is the boiling point of water at sea level?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "In what year was Lolita first published?"
+},
+{
+"category": "paraphrase",
+"group": 45,
+"prompt": "What are the steps to make a pull request in GitHub?"
+},
+{
+"category": "exact",
+"group": 9,
+"prompt": "What is the largest planet in our solar system?"
+},
+{
+"category": "paraphrase",
+"group": 48,
+"prompt": "Python: deduplicate a list"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the main theme of Things Fall Apart?"
+},
+{
+"category": "exact",
+"group": 48,
+"prompt": "How do I remove duplicates from a list in Python?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What country is Lisbon in?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the official language of Poland?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What country is Hanoi in?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "In what year was Brave New World first published?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "paraphrase",
+"group": 47,
+"prompt": "What does inflation mean in economics?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the chemical symbol for argon?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "How long does a octopus typically live?"
+},
+{
+"category": "paraphrase",
+"group": 7,
+"prompt": "What's the number of days in a leap year?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "In what year was Catch-22 first published?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the official language of Finland?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the capital of Tunisia?"
+},
+{
+"category": "paraphrase",
+"group": 48,
+"prompt": "Python: deduplicate a list"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "exact",
+"group": 5,
+"prompt": "Convert 10 kilometers to miles."
+},
+{
+"category": "paraphrase",
+"group": 10,
+"prompt": "How to make a Python venv?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the capital of Greece?"
+},
+{
+"category": "exact",
+"group": 47,
+"prompt": "What is inflation in economics?"
+},
+{
+"category": "exact",
+"group": 28,
+"prompt": "How long should I boil an egg for it to be hard-boiled?"
+},
+{
+"category": "exact",
+"group": 47,
+"prompt": "What is inflation in economics?"
+},
+{
+"category": "exact",
+"group": 18,
+"prompt": "What is the square root of 144?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "paraphrase",
+"group": 16,
+"prompt": "Which mountain is the highest on Earth?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 35,
+"prompt": "What is the main ingredient in guacamole?"
+},
+{
+"category": "exact",
+"group": 7,
+"prompt": "How many days are in a leap year?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the population of Oslo?"
+},
+{
+"category": "exact",
+"group": 43,
+"prompt": "Who discovered penicillin?"
+},
+{
+"category": "paraphrase",
+"group": 0,
+"prompt": "What's the capital city of France?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the currency of Croatia?"
+},
+{
+"category": "exact",
+"group": 35,
+"prompt": "What is the main ingredient in guacamole?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "Who wrote The Trial?"
+},
+{
+"category": "exact",
+"group": 19,
+"prompt": "How many bones are in the adult human body?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 28,
+"prompt": "How long should I boil an egg for it to be hard-boiled?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the currency of Ghana?"
+},
+{
+"category": "exact",
+"group": 48,
+"prompt": "How do I remove duplicates from a list in Python?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 48,
+"prompt": "How do I remove duplicates from a list in Python?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "paraphrase",
+"group": 28,
+"prompt": "How many minutes to hard boil an egg?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the main theme of Middlemarch?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "paraphrase",
+"group": 48,
+"prompt": "What's the way to get rid of duplicate items in a Python list?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the atomic number of copper?"
+},
+{
+"category": "paraphrase",
+"group": 43,
+"prompt": "Who is credited with discovering penicillin?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the chemical symbol for aluminum?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the atomic number of mercury?"
+},
+{
+"category": "paraphrase",
+"group": 47,
+"prompt": "Explain inflation in economic terms."
+},
+{
+"category": "exact",
+"group": 16,
+"prompt": "What is the tallest mountain in the world?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the atomic number of potassium?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the largest city in Chile?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the currency of Norway?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "Who painted Water Lilies?"
+},
+{
+"category": "exact",
+"group": 9,
+"prompt": "What is the largest planet in our solar system?"
+},
+{
+"category": "exact",
+"group": 48,
+"prompt": "How do I remove duplicates from a list in Python?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 35,
+"prompt": "What is the main ingredient in guacamole?"
+},
+{
+"category": "exact",
+"group": 5,
+"prompt": "Convert 10 kilometers to miles."
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the chemical symbol for sodium?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the main theme of The Odyssey?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the currency of Nepal?"
+},
+{
+"category": "paraphrase",
+"group": 47,
+"prompt": "Explain inflation in economic terms."
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is Dublin best known for?"
+},
+{
+"category": "paraphrase",
+"group": 19,
+"prompt": "What's the number of bones in a grown human body?"
+},
+{
+"category": "exact",
+"group": 3,
+"prompt": "Who wrote Pride and Prejudice?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "exact",
+"group": 28,
+"prompt": "How long should I boil an egg for it to be hard-boiled?"
+},
+{
+"category": "exact",
+"group": 47,
+"prompt": "What is inflation in economics?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the capital of Norway?"
+},
+{
+"category": "exact",
+"group": 16,
+"prompt": "What is the tallest mountain in the world?"
+},
+{
+"category": "paraphrase",
+"group": 49,
+"prompt": "What's the time zone for New York?"
+},
+{
+"category": "exact",
+"group": 11,
+"prompt": "What does a SQL JOIN do?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the chemical symbol for lithium?"
+},
+{
+"category": "exact",
+"group": 5,
+"prompt": "Convert 10 kilometers to miles."
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "exact",
+"group": 19,
+"prompt": "How many bones are in the adult human body?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 28,
+"prompt": "How long should I boil an egg for it to be hard-boiled?"
+},
+{
+"category": "paraphrase",
+"group": 41,
+"prompt": "What is Docker used for?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the official language of Morocco?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the chemical symbol for lead?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "Who wrote Don Quixote?"
+},
+{
+"category": "exact",
+"group": 36,
+"prompt": "How do I convert a string to an integer in JavaScript?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 2,
+"prompt": "What is the boiling point of water at sea level?"
+},
+{
+"category": "exact",
+"group": 48,
+"prompt": "How do I remove duplicates from a list in Python?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "Who painted The Last Supper?"
+},
+{
+"category": "exact",
+"group": 47,
+"prompt": "What is inflation in economics?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is Budapest best known for?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "How long does a elephant typically live?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "How long does a goldfish typically live?"
+},
+{
+"category": "paraphrase",
+"group": 37,
+"prompt": "Which currency does Japan use?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the atomic number of tin?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the capital of Argentina?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is Nairobi best known for?"
+},
+{
+"category": "paraphrase",
+"group": 37,
+"prompt": "Which currency does Japan use?"
+},
+{
+"category": "paraphrase",
+"group": 44,
+"prompt": "Name the world's longest river."
+},
+{
+"category": "exact",
+"group": 4,
+"prompt": "What does HTTP status code 418 mean?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the main theme of Ulysses?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the official language of Hungary?"
+},
+{
+"category": "paraphrase",
+"group": 35,
+"prompt": "Guacamole's primary ingredient is what?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "paraphrase",
+"group": 49,
+"prompt": "What's the time zone for New York?"
+},
+{
+"category": "exact",
+"group": 30,
+"prompt": "What is the difference between RAM and ROM?"
+},
+{
+"category": "exact",
+"group": 43,
+"prompt": "Who discovered penicillin?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 28,
+"prompt": "How long should I boil an egg for it to be hard-boiled?"
+},
+{
+"category": "exact",
+"group": 47,
+"prompt": "What is inflation in economics?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is Accra best known for?"
+},
+{
+"category": "paraphrase",
+"group": 36,
+"prompt": "What's the way to turn a string into a number in JS?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "Who wrote Ulysses?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "paraphrase",
+"group": 48,
+"prompt": "Python: deduplicate a list"
+},
+{
+"category": "exact",
+"group": 0,
+"prompt": "What is the capital of France?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the chemical symbol for potassium?"
+},
+{
+"category": "paraphrase",
+"group": 10,
+"prompt": "What's the command to set up a virtualenv for Python?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What country is Reykjavik in?"
+},
+{
+"category": "paraphrase",
+"group": 49,
+"prompt": "Which time zone does New York City use?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "Who painted The Kiss?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the chemical symbol for iodine?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 7,
+"prompt": "How many days are in a leap year?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the largest city in Portugal?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 28,
+"prompt": "How long should I boil an egg for it to be hard-boiled?"
+},
+{
+"category": "paraphrase",
+"group": 28,
+"prompt": "What's the boiling time for a hard-boiled egg?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "Who painted Las Meninas?"
+},
+{
+"category": "exact",
+"group": 48,
+"prompt": "How do I remove duplicates from a list in Python?"
+},
+{
+"category": "paraphrase",
+"group": 48,
+"prompt": "What's the way to get rid of duplicate items in a Python list?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "In what year was Rebecca first published?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What country is Amman in?"
+},
+{
+"category": "exact",
+"group": 34,
+"prompt": "When was Python first released?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 48,
+"prompt": "How do I remove duplicates from a list in Python?"
+},
+{
+"category": "exact",
+"group": 26,
+"prompt": "How do I make cold brew coffee?"
+},
+{
+"category": "paraphrase",
+"group": 28,
+"prompt": "How many minutes to hard boil an egg?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the main theme of Lolita?"
+},
+{
+"category": "paraphrase",
+"group": 47,
+"prompt": "Explain inflation in economic terms."
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the capital of Uruguay?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "exact",
+"group": 22,
+"prompt": "How do I center a div in CSS?"
+},
+{
+"category": "exact",
+"group": 23,
+"prompt": "What is the population of Japan?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "Who wrote Catch-22?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the currency of Peru?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "Who painted Liberty Leading the People?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the atomic number of iron?"
+},
+{
+"category": "paraphrase",
+"group": 37,
+"prompt": "What money is used in Japan?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is Havana best known for?"
+},
+{
+"category": "exact",
+"group": 9,
+"prompt": "What is the largest planet in our solar system?"
+},
+{
+"category": "exact",
+"group": 39,
+"prompt": "How many players does a soccer team have on the field?"
+},
+{
+"category": "exact",
+"group": 33,
+"prompt": "How does a vaccine work?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What country is Athens in?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the population of Tunis?"
+},
+{
+"category": "paraphrase",
+"group": 14,
+"prompt": "What's the way to order a Python dictionary by value?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the official language of Kenya?"
+},
+{
+"category": "paraphrase",
+"group": 37,
+"prompt": "What money is used in Japan?"
+},
+{
+"category": "paraphrase",
+"group": 1,
+"prompt": "python reverse a list how"
+},
+{
+"category": "paraphrase",
+"group": 30,
+"prompt": "RAM vs ROM: what's the difference?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "Who wrote Jane Eyre?"
+},
+{
+"category": "paraphrase",
+"group": 1,
+"prompt": "What's the way to reverse a Python list?"
+},
+{
+"category": "exact",
+"group": 47,
+"prompt": "What is inflation in economics?"
+},
+{
+"category": "paraphrase",
+"group": 48,
+"prompt": "What's the way to get rid of duplicate items in a Python list?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the currency of Greece?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the currency of Tunisia?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the capital of Egypt?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the official language of Bolivia?"
+},
+{
+"category": "paraphrase",
+"group": 5,
+"prompt": "What is 10 kilometers in miles?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the main theme of The Road?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "In what year was The Odyssey first published?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is Athens best known for?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the chemical symbol for calcium?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "paraphrase",
+"group": 9,
+"prompt": "Which planet is the biggest in the solar system?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "paraphrase",
+"group": 39,
+"prompt": "In football (soccer), how many players are on the field for each team?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "Who wrote Middlemarch?"
+},
+{
+"category": "exact",
+"group": 10,
+"prompt": "How do I create a virtual environment in Python?"
+},
+{
+"category": "paraphrase",
+"group": 43,
+"prompt": "Who is credited with discovering penicillin?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the population of Reykjavik?"
+},
+{
+"category": "exact",
+"group": 38,
+"prompt": "What is machine learning?"
+},
+{
+"category": "exact",
+"group": 7,
+"prompt": "How many days are in a leap year?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the main theme of Emma?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "exact",
+"group": 10,
+"prompt": "How do I create a virtual environment in Python?"
+},
+{
+"category": "exact",
+"group": 29,
+"prompt": "Explain Rust's borrow checker."
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the official language of Vietnam?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "paraphrase",
+"group": 0,
+"prompt": "Which city is the French capital?"
+},
+{
+"category": "paraphrase",
+"group": 48,
+"prompt": "Python: deduplicate a list"
+},
+{
+"category": "paraphrase",
+"group": 37,
+"prompt": "Which currency does Japan use?"
+},
+{
+"category": "paraphrase",
+"group": 9,
+"prompt": "Name the largest planet orbiting the Sun."
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "paraphrase",
+"group": 18,
+"prompt": "Calculate the square root of 144."
+},
+{
+"category": "paraphrase",
+"group": 20,
+"prompt": "Explain the TCP protocol."
+},
+{
+"category": "paraphrase",
+"group": 37,
+"prompt": "What money is used in Japan?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "In what year was The Hobbit first published?"
+},
+{
+"category": "exact",
+"group": 19,
+"prompt": "How many bones are in the adult human body?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "exact",
+"group": 19,
+"prompt": "How many bones are in the adult human body?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "Who wrote Dracula?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the population of Nairobi?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the capital of Jordan?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "paraphrase",
+"group": 28,
+"prompt": "How many minutes to hard boil an egg?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the chemical symbol for helium?"
+},
+{
+"category": "exact",
+"group": 4,
+"prompt": "What does HTTP status code 418 mean?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the largest city in Bolivia?"
+},
+{
+"category": "exact",
+"group": 39,
+"prompt": "How many players does a soccer team have on the field?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What country is Budapest in?"
+},
+{
+"category": "exact",
+"group": 48,
+"prompt": "How do I remove duplicates from a list in Python?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the population of Havana?"
+},
+{
+"category": "exact",
+"group": 11,
+"prompt": "What does a SQL JOIN do?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "Who painted The Birth of Venus?"
+},
+{
+"category": "exact",
+"group": 47,
+"prompt": "What is inflation in economics?"
+},
+{
+"category": "exact",
+"group": 21,
+"prompt": "What is the chemical symbol for gold?"
+},
+{
+"category": "exact",
+"group": 20,
+"prompt": "What is TCP?"
+},
+{
+"category": "paraphrase",
+"group": 5,
+"prompt": "What is 10 kilometers in miles?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the official language of Latvia?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "In what year was The Trial first published?"
+},
+{
+"category": "paraphrase",
+"group": 21,
+"prompt": "Which element symbol represents gold?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "exact",
+"group": 48,
+"prompt": "How do I remove duplicates from a list in Python?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 36,
+"prompt": "How do I convert a string to an integer in JavaScript?"
+},
+{
+"category": "exact",
+"group": 28,
+"prompt": "How long should I boil an egg for it to be hard-boiled?"
+},
+{
+"category": "exact",
+"group": 48,
+"prompt": "How do I remove duplicates from a list in Python?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "exact",
+"group": 14,
+"prompt": "How do I sort a dictionary by value in Python?"
+},
+{
+"category": "exact",
+"group": 26,
+"prompt": "How do I make cold brew coffee?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the population of Montevideo?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "paraphrase",
+"group": 48,
+"prompt": "Python: deduplicate a list"
+},
+{
+"category": "paraphrase",
+"group": 28,
+"prompt": "What's the boiling time for a hard-boiled egg?"
+},
+{
+"category": "exact",
+"group": 6,
+"prompt": "What is a mutex?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the atomic number of silicon?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the chemical symbol for magnesium?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the main theme of Dune?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the largest city in New Zealand?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the capital of Hungary?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "paraphrase",
+"group": 15,
+"prompt": "In which year did the Second World War end?"
+},
+{
+"category": "paraphrase",
+"group": 47,
+"prompt": "Explain inflation in economic terms."
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "paraphrase",
+"group": 4,
+"prompt": "What is the meaning of the HTTP 418 status?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the population of Hanoi?"
+},
+{
+"category": "paraphrase",
+"group": 44,
+"prompt": "Which river is the longest on Earth?"
+},
+{
+"category": "paraphrase",
+"group": 48,
+"prompt": "What's the way to get rid of duplicate items in a Python list?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "Who painted Guernica?"
+},
+{
+"category": "exact",
+"group": 19,
+"prompt": "How many bones are in the adult human body?"
+},
+{
+"category": "exact",
+"group": 9,
+"prompt": "What is the largest planet in our solar system?"
+},
+{
+"category": "exact",
+"group": 22,
+"prompt": "How do I center a div in CSS?"
+},
+{
+"category": "paraphrase",
+"group": 3,
+"prompt": "Pride and Prejudice was written by whom?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "Who wrote Persuasion?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "paraphrase",
+"group": 48,
+"prompt": "Python: deduplicate a list"
+},
+{
+"category": "paraphrase",
+"group": 37,
+"prompt": "What money is used in Japan?"
+},
+{
+"category": "exact",
+"group": 19,
+"prompt": "How many bones are in the adult human body?"
+},
+{
+"category": "paraphrase",
+"group": 47,
+"prompt": "Explain inflation in economic terms."
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the official language of Croatia?"
+},
+{
+"category": "exact",
+"group": 48,
+"prompt": "How do I remove duplicates from a list in Python?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "How long does a bald eagle typically live?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the capital of Ghana?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "paraphrase",
+"group": 10,
+"prompt": "What's the command to set up a virtualenv for Python?"
+},
+{
+"category": "exact",
+"group": 3,
+"prompt": "Who wrote Pride and Prejudice?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the capital of Laos?"
+},
+{
+"category": "paraphrase",
+"group": 24,
+"prompt": "What's the Big O of binary search?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the official language of Norway?"
+},
+{
+"category": "exact",
+"group": 30,
+"prompt": "What is the difference between RAM and ROM?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the main theme of Brave New World?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the main theme of The Trial?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "paraphrase",
+"group": 15,
+"prompt": "When did WWII end?"
+},
+{
+"category": "exact",
+"group": 12,
+"prompt": "Who painted the Mona Lisa?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is Amman best known for?"
+},
+{
+"category": "exact",
+"group": 32,
+"prompt": "What is 15% of 200?"
+},
+{
+"category": "exact",
+"group": 13,
+"prompt": "What is photosynthesis?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "Who painted The Arnolfini Portrait?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the currency of Senegal?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the official language of Tunisia?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "paraphrase",
+"group": 22,
+"prompt": "What's the best way to center a div with CSS?"
+},
+{
+"category": "exact",
+"group": 24,
+"prompt": "What is the time complexity of binary search?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "How long does a blue whale typically live?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the currency of Latvia?"
+},
+{
+"category": "exact",
+"group": 48,
+"prompt": "How do I remove duplicates from a list in Python?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "Who wrote The Road?"
+},
+{
+"category": "exact",
+"group": 48,
+"prompt": "How do I remove duplicates from a list in Python?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the capital of New Zealand?"
+},
+{
+"category": "paraphrase",
+"group": 28,
+"prompt": "What's the boiling time for a hard-boiled egg?"
+},
+{
+"category": "paraphrase",
+"group": 32,
+"prompt": "Calculate 15 percent of 200."
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "Who wrote Frankenstein?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 10,
+"prompt": "How do I create a virtual environment in Python?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the largest city in Ghana?"
+},
+{
+"category": "paraphrase",
+"group": 7,
+"prompt": "A leap year has how many days?"
+},
+{
+"category": "exact",
+"group": 47,
+"prompt": "What is inflation in economics?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the currency of Morocco?"
+},
+{
+"category": "exact",
+"group": 35,
+"prompt": "What is the main ingredient in guacamole?"
+},
+{
+"category": "paraphrase",
+"group": 2,
+"prompt": "At sea level, what temperature does water boil at?"
+},
+{
+"category": "paraphrase",
+"group": 49,
+"prompt": "Which time zone does New York City use?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "exact",
+"group": 45,
+"prompt": "How do I open a pull request on GitHub?"
+},
+{
+"category": "paraphrase",
+"group": 1,
+"prompt": "python reverse a list how"
+},
+{
+"category": "paraphrase",
+"group": 47,
+"prompt": "What does inflation mean in economics?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the capital of Poland?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 47,
+"prompt": "What is inflation in economics?"
+},
+{
+"category": "exact",
+"group": 2,
+"prompt": "What is the boiling point of water at sea level?"
+},
+{
+"category": "paraphrase",
+"group": 7,
+"prompt": "What's the number of days in a leap year?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the largest city in Poland?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the atomic number of calcium?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "How long does a giraffe typically live?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the chemical symbol for sulfur?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the atomic number of platinum?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "paraphrase",
+"group": 44,
+"prompt": "Which river is the longest on Earth?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "paraphrase",
+"group": 5,
+"prompt": "What is 10 kilometers in miles?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the capital of Portugal?"
+},
+{
+"category": "paraphrase",
+"group": 37,
+"prompt": "What money is used in Japan?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the capital of Kenya?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "How long does a koala typically live?"
+},
+{
+"category": "paraphrase",
+"group": 48,
+"prompt": "What's the way to get rid of duplicate items in a Python list?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the largest city in Thailand?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "paraphrase",
+"group": 6,
+"prompt": "What does mutex mean in programming?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 45,
+"prompt": "How do I open a pull request on GitHub?"
+},
+{
+"category": "exact",
+"group": 39,
+"prompt": "How many players does a soccer team have on the field?"
+},
+{
+"category": "exact",
+"group": 18,
+"prompt": "What is the square root of 144?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 48,
+"prompt": "How do I remove duplicates from a list in Python?"
+},
+{
+"category": "exact",
+"group": 39,
+"prompt": "How many players does a soccer team have on the field?"
+},
+{
+"category": "exact",
+"group": 19,
+"prompt": "How many bones are in the adult human body?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What country is Kathmandu in?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "Who wrote Dune?"
+},
+{
+"category": "exact",
+"group": 24,
+"prompt": "What is the time complexity of binary search?"
+},
+{
+"category": "paraphrase",
+"group": 47,
+"prompt": "Explain inflation in economic terms."
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the largest city in Norway?"
+},
+{
+"category": "paraphrase",
+"group": 48,
+"prompt": "Python: deduplicate a list"
+},
+{
+"category": "paraphrase",
+"group": 46,
+"prompt": "What's the recommended daily water intake?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "Who painted Girl with a Pearl Earring?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "In what year was Things Fall Apart first published?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What country is Dublin in?"
+},
+{
+"category": "exact",
+"group": 5,
+"prompt": "Convert 10 kilometers to miles."
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "How long does a hamster typically live?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What country is La Paz in?"
+},
+{
+"category": "exact",
+"group": 32,
+"prompt": "What is 15% of 200?"
+},
+{
+"category": "paraphrase",
+"group": 15,
+"prompt": "In which year did the Second World War end?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "paraphrase",
+"group": 10,
+"prompt": "How to make a Python venv?"
+},
+{
+"category": "exact",
+"group": 36,
+"prompt": "How do I convert a string to an integer in JavaScript?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "paraphrase",
+"group": 5,
+"prompt": "How many miles is 10 km?"
+},
+{
+"category": "paraphrase",
+"group": 47,
+"prompt": "Explain inflation in economic terms."
+},
+{
+"category": "exact",
+"group": 30,
+"prompt": "What is the difference between RAM and ROM?"
+},
+{
+"category": "paraphrase",
+"group": 49,
+"prompt": "Which time zone does New York City use?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "How long does a house cat typically live?"
+},
+{
+"category": "exact",
+"group": 9,
+"prompt": "What is the largest planet in our solar system?"
+},
+{
+"category": "exact",
+"group": 28,
+"prompt": "How long should I boil an egg for it to be hard-boiled?"
+},
+{
+"category": "paraphrase",
+"group": 48,
+"prompt": "What's the way to get rid of duplicate items in a Python list?"
+},
+{
+"category": "exact",
+"group": 4,
+"prompt": "What does HTTP status code 418 mean?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the currency of Argentina?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "paraphrase",
+"group": 19,
+"prompt": "What's the number of bones in a grown human body?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "paraphrase",
+"group": 25,
+"prompt": "Who first walked on the moon?"
+},
+{
+"category": "exact",
+"group": 48,
+"prompt": "How do I remove duplicates from a list in Python?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What country is Havana in?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the capital of Vietnam?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the atomic number of argon?"
+},
+{
+"category": "exact",
+"group": 48,
+"prompt": "How do I remove duplicates from a list in Python?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the official language of Portugal?"
+},
+{
+"category": "paraphrase",
+"group": 10,
+"prompt": "What's the command to set up a virtualenv for Python?"
+},
+{
+"category": "exact",
+"group": 7,
+"prompt": "How many days are in a leap year?"
+},
+{
+"category": "paraphrase",
+"group": 36,
+"prompt": "JavaScript: parse a string into an int"
+},
+{
+"category": "paraphrase",
+"group": 19,
+"prompt": "How many bones does an adult human have?"
+},
+{
+"category": "exact",
+"group": 28,
+"prompt": "How long should I boil an egg for it to be hard-boiled?"
+},
+{
+"category": "paraphrase",
+"group": 7,
+"prompt": "A leap year has how many days?"
+},
+{
+"category": "exact",
+"group": 47,
+"prompt": "What is inflation in economics?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is Hanoi best known for?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the currency of Egypt?"
+},
+{
+"category": "exact",
+"group": 47,
+"prompt": "What is inflation in economics?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the official language of Uruguay?"
+},
+{
+"category": "paraphrase",
+"group": 48,
+"prompt": "What's the way to get rid of duplicate items in a Python list?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the official language of Nepal?"
+},
+{
+"category": "exact",
+"group": 39,
+"prompt": "How many players does a soccer team have on the field?"
+},
+{
+"category": "paraphrase",
+"group": 11,
+"prompt": "What is the purpose of a JOIN in SQL queries?"
+},
+{
+"category": "exact",
+"group": 4,
+"prompt": "What does HTTP status code 418 mean?"
+},
+{
+"category": "exact",
+"group": 5,
+"prompt": "Convert 10 kilometers to miles."
+},
+{
+"category": "exact",
+"group": 36,
+"prompt": "How do I convert a string to an integer in JavaScript?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the chemical symbol for platinum?"
+},
+{
+"category": "exact",
+"group": 47,
+"prompt": "What is inflation in economics?"
+},
+{
+"category": "paraphrase",
+"group": 37,
+"prompt": "Which currency does Japan use?"
+},
+{
+"category": "paraphrase",
+"group": 37,
+"prompt": "What money is used in Japan?"
+},
+{
+"category": "exact",
+"group": 44,
+"prompt": "What is the longest river in the world?"
+},
+{
+"category": "paraphrase",
+"group": 27,
+"prompt": "How are rainbows created?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "paraphrase",
+"group": 37,
+"prompt": "What money is used in Japan?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is Montevideo best known for?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "exact",
+"group": 25,
+"prompt": "Who was the first person to walk on the Moon?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What country is Bogot\u00e1 in?"
+},
+{
+"category": "exact",
+"group": 48,
+"prompt": "How do I remove duplicates from a list in Python?"
+},
+{
+"category": "exact",
+"group": 16,
+"prompt": "What is the tallest mountain in the world?"
+},
+{
+"category": "paraphrase",
+"group": 24,
+"prompt": "How efficient is binary search in Big O terms?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the capital of Cuba?"
+},
+{
+"category": "paraphrase",
+"group": 2,
+"prompt": "At sea level, what temperature does water boil at?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the currency of Hungary?"
+},
+{
+"category": "paraphrase",
+"group": 30,
+"prompt": "How does RAM differ from ROM?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "exact",
+"group": 44,
+"prompt": "What is the longest river in the world?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the atomic number of phosphorus?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the largest city in Mongolia?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is La Paz best known for?"
+},
+{
+"category": "exact",
+"group": 19,
+"prompt": "How many bones are in the adult human body?"
+},
+{
+"category": "paraphrase",
+"group": 37,
+"prompt": "What money is used in Japan?"
+},
+{
+"category": "exact",
+"group": 5,
+"prompt": "Convert 10 kilometers to miles."
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is Kathmandu best known for?"
+},
+{
+"category": "paraphrase",
+"group": 43,
+"prompt": "Who is credited with discovering penicillin?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the population of La Paz?"
+},
+{
+"category": "exact",
+"group": 27,
+"prompt": "What causes rainbows?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the largest city in Hungary?"
+},
+{
+"category": "exact",
+"group": 44,
+"prompt": "What is the longest river in the world?"
+},
+{
+"category": "exact",
+"group": 28,
+"prompt": "How long should I boil an egg for it to be hard-boiled?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the atomic number of helium?"
+},
+{
+"category": "exact",
+"group": 39,
+"prompt": "How many players does a soccer team have on the field?"
+},
+{
+"category": "paraphrase",
+"group": 48,
+"prompt": "Python: deduplicate a list"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "paraphrase",
+"group": 23,
+"prompt": "How many people live in Japan?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the largest city in Finland?"
+},
+{
+"category": "paraphrase",
+"group": 26,
+"prompt": "Give me instructions for cold brew coffee."
+},
+{
+"category": "exact",
+"group": 12,
+"prompt": "Who painted the Mona Lisa?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "exact",
+"group": 10,
+"prompt": "How do I create a virtual environment in Python?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the atomic number of neon?"
+},
+{
+"category": "paraphrase",
+"group": 37,
+"prompt": "What money is used in Japan?"
+},
+{
+"category": "exact",
+"group": 35,
+"prompt": "What is the main ingredient in guacamole?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 48,
+"prompt": "How do I remove duplicates from a list in Python?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the currency of Bolivia?"
+},
+{
+"category": "exact",
+"group": 43,
+"prompt": "Who discovered penicillin?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What country is Dakar in?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "In what year was Don Quixote first published?"
+},
+{
+"category": "exact",
+"group": 27,
+"prompt": "What causes rainbows?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the official language of New Zealand?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is Riga best known for?"
+},
+{
+"category": "exact",
+"group": 25,
+"prompt": "Who was the first person to walk on the Moon?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the atomic number of sodium?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "paraphrase",
+"group": 13,
+"prompt": "Can you describe how photosynthesis works?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "How long does a dolphin typically live?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the main theme of Dracula?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the largest city in Peru?"
+},
+{
+"category": "paraphrase",
+"group": 42,
+"prompt": "Linux command to see free disk space"
+},
+{
+"category": "paraphrase",
+"group": 36,
+"prompt": "JavaScript: parse a string into an int"
+},
+{
+"category": "exact",
+"group": 40,
+"prompt": "What is the atomic number of carbon?"
+},
+{
+"category": "exact",
+"group": 5,
+"prompt": "Convert 10 kilometers to miles."
+},
+{
+"category": "exact",
+"group": 33,
+"prompt": "How does a vaccine work?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the capital of Chile?"
+},
+{
+"category": "exact",
+"group": 18,
+"prompt": "What is the square root of 144?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the official language of Peru?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "paraphrase",
+"group": 18,
+"prompt": "Calculate the square root of 144."
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "In what year was Persuasion first published?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What country is Tunis in?"
+},
+{
+"category": "exact",
+"group": 35,
+"prompt": "What is the main ingredient in guacamole?"
+},
+{
+"category": "paraphrase",
+"group": 21,
+"prompt": "Which element symbol represents gold?"
+},
+{
+"category": "paraphrase",
+"group": 13,
+"prompt": "Can you describe how photosynthesis works?"
+},
+{
+"category": "exact",
+"group": 4,
+"prompt": "What does HTTP status code 418 mean?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the capital of Senegal?"
+},
+{
+"category": "exact",
+"group": 30,
+"prompt": "What is the difference between RAM and ROM?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the official language of Colombia?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is Lisbon best known for?"
+},
+{
+"category": "paraphrase",
+"group": 48,
+"prompt": "What's the way to get rid of duplicate items in a Python list?"
+},
+{
+"category": "exact",
+"group": 19,
+"prompt": "How many bones are in the adult human body?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the main theme of Rebecca?"
+},
+{
+"category": "exact",
+"group": 28,
+"prompt": "How long should I boil an egg for it to be hard-boiled?"
+},
+{
+"category": "paraphrase",
+"group": 37,
+"prompt": "What money is used in Japan?"
+},
+{
+"category": "exact",
+"group": 5,
+"prompt": "Convert 10 kilometers to miles."
+},
+{
+"category": "paraphrase",
+"group": 37,
+"prompt": "Which currency does Japan use?"
+},
+{
+"category": "paraphrase",
+"group": 37,
+"prompt": "Which currency does Japan use?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the largest city in Argentina?"
+},
+{
+"category": "exact",
+"group": 28,
+"prompt": "How long should I boil an egg for it to be hard-boiled?"
+},
+{
+"category": "paraphrase",
+"group": 30,
+"prompt": "RAM vs ROM: what's the difference?"
+},
+{
+"category": "paraphrase",
+"group": 4,
+"prompt": "What is the meaning of the HTTP 418 status?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the capital of Thailand?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "exact",
+"group": 39,
+"prompt": "How many players does a soccer team have on the field?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the official language of Mongolia?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "How long does a tortoise typically live?"
+},
+{
+"category": "exact",
+"group": 44,
+"prompt": "What is the longest river in the world?"
+},
+{
+"category": "paraphrase",
+"group": 19,
+"prompt": "What's the number of bones in a grown human body?"
+},
+{
+"category": "exact",
+"group": 47,
+"prompt": "What is inflation in economics?"
+},
+{
+"category": "exact",
+"group": 23,
+"prompt": "What is the population of Japan?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "paraphrase",
+"group": 37,
+"prompt": "What money is used in Japan?"
+},
+{
+"category": "exact",
+"group": 22,
+"prompt": "How do I center a div in CSS?"
+},
+{
+"category": "exact",
+"group": 47,
+"prompt": "What is inflation in economics?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the main theme of Persuasion?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the official language of Ghana?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "exact",
+"group": 43,
+"prompt": "Who discovered penicillin?"
+},
+{
+"category": "paraphrase",
+"group": 28,
+"prompt": "How many minutes to hard boil an egg?"
+},
+{
+"category": "paraphrase",
+"group": 5,
+"prompt": "What is 10 kilometers in miles?"
+},
+{
+"category": "paraphrase",
+"group": 3,
+"prompt": "Pride and Prejudice was written by whom?"
+},
+{
+"category": "paraphrase",
+"group": 9,
+"prompt": "Name the largest planet orbiting the Sun."
+},
+{
+"category": "paraphrase",
+"group": 37,
+"prompt": "What money is used in Japan?"
+},
+{
+"category": "exact",
+"group": 11,
+"prompt": "What does a SQL JOIN do?"
+},
+{
+"category": "paraphrase",
+"group": 49,
+"prompt": "What's the time zone for New York?"
+},
+{
+"category": "paraphrase",
+"group": 28,
+"prompt": "How many minutes to hard boil an egg?"
+},
+{
+"category": "paraphrase",
+"group": 47,
+"prompt": "Explain inflation in economic terms."
+},
+{
+"category": "exact",
+"group": 12,
+"prompt": "Who painted the Mona Lisa?"
+},
+{
+"category": "exact",
+"group": 28,
+"prompt": "How long should I boil an egg for it to be hard-boiled?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the currency of Colombia?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the main theme of The Hobbit?"
+},
+{
+"category": "paraphrase",
+"group": 46,
+"prompt": "How many liters of water should a person drink daily?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What country is Nairobi in?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "How long does a horse typically live?"
+},
+{
+"category": "paraphrase",
+"group": 28,
+"prompt": "How many minutes to hard boil an egg?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "Who painted The Garden of Earthly Delights?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the atomic number of magnesium?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 10,
+"prompt": "How do I create a virtual environment in Python?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "exact",
+"group": 48,
+"prompt": "How do I remove duplicates from a list in Python?"
+},
+{
+"category": "paraphrase",
+"group": 28,
+"prompt": "How many minutes to hard boil an egg?"
+},
+{
+"category": "exact",
+"group": 29,
+"prompt": "Explain Rust's borrow checker."
+},
+{
+"category": "paraphrase",
+"group": 12,
+"prompt": "The Mona Lisa was painted by who?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "In what year was The Road first published?"
+},
+{
+"category": "paraphrase",
+"group": 44,
+"prompt": "Name the world's longest river."
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the largest city in Vietnam?"
+},
+{
+"category": "paraphrase",
+"group": 21,
+"prompt": "Which element symbol represents gold?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the official language of Senegal?"
+},
+{
+"category": "paraphrase",
+"group": 9,
+"prompt": "Which planet is the biggest in the solar system?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the population of Athens?"
+},
+{
+"category": "paraphrase",
+"group": 38,
+"prompt": "Define machine learning."
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "paraphrase",
+"group": 20,
+"prompt": "Explain the TCP protocol."
+},
+{
+"category": "paraphrase",
+"group": 19,
+"prompt": "How many bones does an adult human have?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "Who painted The Great Wave off Kanagawa?"
+},
+{
+"category": "paraphrase",
+"group": 47,
+"prompt": "Explain inflation in economic terms."
+},
+{
+"category": "paraphrase",
+"group": 37,
+"prompt": "What money is used in Japan?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is Zagreb best known for?"
+},
+{
+"category": "paraphrase",
+"group": 39,
+"prompt": "In football (soccer), how many players are on the field for each team?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the largest city in Colombia?"
+},
+{
+"category": "exact",
+"group": 25,
+"prompt": "Who was the first person to walk on the Moon?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the largest city in Uruguay?"
+},
+{
+"category": "paraphrase",
+"group": 32,
+"prompt": "Calculate 15 percent of 200."
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "In what year was Beloved first published?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "Who wrote Things Fall Apart?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "paraphrase",
+"group": 35,
+"prompt": "Guacamole's primary ingredient is what?"
+},
+{
+"category": "paraphrase",
+"group": 4,
+"prompt": "Explain HTTP error 418."
+},
+{
+"category": "exact",
+"group": 28,
+"prompt": "How long should I boil an egg for it to be hard-boiled?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "Who wrote Moby-Dick?"
+},
+{
+"category": "paraphrase",
+"group": 24,
+"prompt": "How efficient is binary search in Big O terms?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the main theme of Don Quixote?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "exact",
+"group": 28,
+"prompt": "How long should I boil an egg for it to be hard-boiled?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the population of Budapest?"
+},
+{
+"category": "paraphrase",
+"group": 0,
+"prompt": "What's the capital city of France?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the official language of Iceland?"
+},
+{
+"category": "exact",
+"group": 20,
+"prompt": "What is TCP?"
+},
+{
+"category": "exact",
+"group": 48,
+"prompt": "How do I remove duplicates from a list in Python?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the currency of Cuba?"
+},
+{
+"category": "exact",
+"group": 48,
+"prompt": "How do I remove duplicates from a list in Python?"
+},
+{
+"category": "paraphrase",
+"group": 19,
+"prompt": "How many bones does an adult human have?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is Bogot\u00e1 best known for?"
+},
+{
+"category": "exact",
+"group": 23,
+"prompt": "What is the population of Japan?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the largest city in Nepal?"
+},
+{
+"category": "exact",
+"group": 27,
+"prompt": "What causes rainbows?"
+},
+{
+"category": "exact",
+"group": 13,
+"prompt": "What is photosynthesis?"
+},
+{
+"category": "exact",
+"group": 10,
+"prompt": "How do I create a virtual environment in Python?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the main theme of Beloved?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the capital of Colombia?"
+},
+{
+"category": "exact",
+"group": 5,
+"prompt": "Convert 10 kilometers to miles."
+},
+{
+"category": "exact",
+"group": 17,
+"prompt": "How do I undo the last git commit?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 35,
+"prompt": "What is the main ingredient in guacamole?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "In what year was Frankenstein first published?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the largest city in Morocco?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "In what year was Dune first published?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the currency of Iceland?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the currency of Chile?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the official language of Greece?"
+},
+{
+"category": "exact",
+"group": 48,
+"prompt": "How do I remove duplicates from a list in Python?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the currency of Jordan?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "In what year was Middlemarch first published?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the population of Dublin?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the capital of Mongolia?"
+},
+{
+"category": "exact",
+"group": 16,
+"prompt": "What is the tallest mountain in the world?"
+},
+{
+"category": "exact",
+"group": 28,
+"prompt": "How long should I boil an egg for it to be hard-boiled?"
+},
+{
+"category": "exact",
+"group": 29,
+"prompt": "Explain Rust's borrow checker."
+},
+{
+"category": "paraphrase",
+"group": 10,
+"prompt": "How to make a Python venv?"
+},
+{
+"category": "exact",
+"group": 35,
+"prompt": "What is the main ingredient in guacamole?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the largest city in Croatia?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "Who painted Olympia?"
+},
+{
+"category": "paraphrase",
+"group": 16,
+"prompt": "Which mountain is the highest on Earth?"
+},
+{
+"category": "paraphrase",
+"group": 48,
+"prompt": "Python: deduplicate a list"
+},
+{
+"category": "exact",
+"group": 46,
+"prompt": "How much water should I drink per day?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the official language of Argentina?"
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "paraphrase",
+"group": 10,
+"prompt": "What's the command to set up a virtualenv for Python?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the atomic number of zinc?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "How long does a flamingo typically live?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "paraphrase",
+"group": 5,
+"prompt": "What is 10 kilometers in miles?"
+},
+{
+"category": "exact",
+"group": 44,
+"prompt": "What is the longest river in the world?"
+},
+{
+"category": "exact",
+"group": 30,
+"prompt": "What is the difference between RAM and ROM?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is Lima best known for?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "paraphrase",
+"group": 20,
+"prompt": "What does TCP stand for and what is it?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the atomic number of lithium?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the largest city in Iceland?"
+},
+{
+"category": "exact",
+"group": 28,
+"prompt": "How long should I boil an egg for it to be hard-boiled?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "Who painted The Night Watch?"
+},
+{
+"category": "paraphrase",
+"group": 19,
+"prompt": "How many bones does an adult human have?"
+},
+{
+"category": "exact",
+"group": 5,
+"prompt": "Convert 10 kilometers to miles."
+},
+{
+"category": "exact",
+"group": 3,
+"prompt": "Who wrote Pride and Prejudice?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "Who wrote Emma?"
+},
+{
+"category": "paraphrase",
+"group": 2,
+"prompt": "At what temperature does water boil at sea level?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "In what year was Ulysses first published?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the currency of Finland?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the atomic number of iodine?"
+},
+{
+"category": "paraphrase",
+"group": 47,
+"prompt": "What does inflation mean in economics?"
+},
+{
+"category": "paraphrase",
+"group": 37,
+"prompt": "Which currency does Japan use?"
+},
+{
+"category": "exact",
+"group": 9,
+"prompt": "What is the largest planet in our solar system?"
+},
+{
+"category": "paraphrase",
+"group": 36,
+"prompt": "What's the way to turn a string into a number in JS?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "paraphrase",
+"group": 2,
+"prompt": "At what temperature does water boil at sea level?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the largest city in Egypt?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 2,
+"prompt": "What is the boiling point of water at sea level?"
+},
+{
+"category": "paraphrase",
+"group": 47,
+"prompt": "What does inflation mean in economics?"
+},
+{
+"category": "paraphrase",
+"group": 7,
+"prompt": "What's the number of days in a leap year?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the currency of Thailand?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "exact",
+"group": 23,
+"prompt": "What is the population of Japan?"
+},
+{
+"category": "exact",
+"group": 4,
+"prompt": "What does HTTP status code 418 mean?"
+},
+{
+"category": "exact",
+"group": 49,
+"prompt": "What time zone is New York in?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 34,
+"prompt": "When was Python first released?"
+},
+{
+"category": "paraphrase",
+"group": 36,
+"prompt": "JavaScript: parse a string into an int"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the currency of Ireland?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "exact",
+"group": 38,
+"prompt": "What is machine learning?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "Who painted The Persistence of Memory?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the chemical symbol for tin?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the currency of Vietnam?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "Who painted The Hay Wain?"
+},
+{
+"category": "paraphrase",
+"group": 1,
+"prompt": "What's the way to reverse a Python list?"
+},
+{
+"category": "exact",
+"group": 5,
+"prompt": "Convert 10 kilometers to miles."
+},
+{
+"category": "exact",
+"group": 10,
+"prompt": "How do I create a virtual environment in Python?"
+},
+{
+"category": "exact",
+"group": 48,
+"prompt": "How do I remove duplicates from a list in Python?"
+},
+{
+"category": "paraphrase",
+"group": 37,
+"prompt": "What money is used in Japan?"
+},
+{
+"category": "exact",
+"group": 28,
+"prompt": "How long should I boil an egg for it to be hard-boiled?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the largest city in Greece?"
+},
+{
+"category": "paraphrase",
+"group": 30,
+"prompt": "How does RAM differ from ROM?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "What is the currency of Laos?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "Who wrote Beloved?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "How do you say good morning in Spanish?"
+},
+{
+"category": "exact",
+"group": 47,
+"prompt": "What is inflation in economics?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "Who painted Nighthawks?"
+},
+{
+"category": "paraphrase",
+"group": 34,
+"prompt": "What year did Python come out?"
+},
+{
+"category": "unique",
+"group": null,
+"prompt": "In what year was Dracula first published?"
+},
+{
+"category": "exact",
+"group": 31,
+"prompt": "Translate 'good morning' into Spanish."
+},
+{
+"category": "exact",
+"group": 37,
+"prompt": "What is the currency of Japan?"
+},
+{
+"category": "paraphrase",
+"group": 31,
+"prompt": "What is 'good morning' in Spanish?"
+}
+]

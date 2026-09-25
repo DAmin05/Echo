@@ -3,6 +3,7 @@
 
 use anyhow::{Context, Result};
 use redis::{aio::ConnectionManager, AsyncCommands};
+use tracing::instrument;
 
 const STATS_HITS: &str = "echo:stats:hits";
 const STATS_MISSES: &str = "echo:stats:misses";
@@ -20,6 +21,7 @@ impl EntryStore {
     }
 
     /// Writes the entry and its TTL atomically.
+    #[instrument(name = "redis.put", skip_all, fields(otel.kind = "client", db.system = "redis"))]
     pub async fn put(&self, id: &str, prompt: &str, response: &str, ttl_secs: u64) -> Result<()> {
         let key = entry_key(id);
         redis::pipe()
@@ -35,6 +37,7 @@ impl EntryStore {
 
     /// The cached response, or `None` if the entry's TTL has expired.
     /// Bumps the entry's hit count when found.
+    #[instrument(name = "redis.get", skip_all, fields(otel.kind = "client", db.system = "redis"))]
     pub async fn get(&self, id: &str) -> Result<Option<String>> {
         let key = entry_key(id);
         let mut conn = self.conn.clone();

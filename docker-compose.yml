@@ -32,7 +32,15 @@ services:
       timeout: 3s
       retries: 10
 
+  jaeger:
+    image: jaegertracing/jaeger:2.21.0
+    ports:
+      - "16686:16686" # UI: http://localhost:16686
+      - "4317:4317"   # OTLP/gRPC, for services run locally with `cargo run`
+    # In-memory storage: traces are lost on restart, which is fine for dev.
+
   # --- Echo services ---------------------------------------------------------
+  # Every service exports spans to Jaeger via OTEL_EXPORTER_OTLP_ENDPOINT.
   # Build contexts are the repo root so every service can reach proto/.
   # Internal ports are published too, for grpcurl and for running one service
   # locally with `cargo run` against the rest.
@@ -43,7 +51,9 @@ services:
       dockerfile: embedding-svc/Dockerfile
     ports:
       - "50051:50051" # gRPC
-      - "8001:8001"   # HTTP: /healthz, POST /embed
+      - "8001:8001"   # HTTP: /healthz, POST /embed, POST /score-duplicates
+    environment:
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://jaeger:4317
     restart: unless-stopped
     # Healthcheck is defined in the Dockerfile (passes once the model is loaded).
 
@@ -58,6 +68,7 @@ services:
       REDIS_URL: redis://redis:6379
       EMBEDDING_DIM: 384
       CACHE_TTL_SECS: ${CACHE_TTL_SECS:-86400}
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://jaeger:4317
     depends_on:
       qdrant:
         condition: service_healthy
@@ -76,6 +87,7 @@ services:
       OPENAI_API_KEY: ${OPENAI_API_KEY:-}
       # Ollama running on the host machine, reachable from inside the container.
       OLLAMA_URL: ${OLLAMA_URL:-http://host.docker.internal:11434}
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://jaeger:4317
     restart: unless-stopped
 
   gateway:
@@ -88,9 +100,15 @@ services:
       EMBEDDING_SVC_URL: http://embedding-svc:50051
       CACHE_SVC_URL: http://cache-svc:50052
       PROVIDER_ADAPTER_URL: http://provider-adapter:50053
-      # Used for cache lookups and in-flight dedup; sent to cache-svc per query.
+      # Matching for cache lookups and in-flight dedup (see README, "Choosing the threshold"):
+      # vector similarity finds candidates, the cross-encoder in embedding-svc verifies them.
+      VERIFY_ENABLED: ${VERIFY_ENABLED:-true}
+      CANDIDATE_THRESHOLD: ${CANDIDATE_THRESHOLD:-0.70}
+      VERIFY_THRESHOLD: ${VERIFY_THRESHOLD:-0.80}
+      # Used instead when VERIFY_ENABLED=false.
       SIMILARITY_THRESHOLD: ${SIMILARITY_THRESHOLD:-0.90}
       DEDUP_ENABLED: ${DEDUP_ENABLED:-true}
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://jaeger:4317
     depends_on:
       # The gateway connects lazily and fails open, so it only needs these
       # started; waiting for embedding-svc's model avoids a burst of bypasses.
