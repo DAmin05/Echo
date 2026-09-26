@@ -4,8 +4,6 @@ Echo sits between clients and LLM providers. It embeds each prompt, checks a vec
 
 On a 1,000-request mixed workload (k6, `claude-haiku-4-5`), Echo served **62% of requests without calling the LLM**, cut **LLM cost by 70%**, and brought **median latency from 690 ms to 82 ms**, with 1 wrong answer out of 623 served from cache. Details in [Phase 5 — load test](#phase-5--load-test).
 
-
-
 ## Architecture
 
 ```
